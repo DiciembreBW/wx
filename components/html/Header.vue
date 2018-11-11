@@ -2,10 +2,10 @@
     <section class="hero">
         <div class="hero-body">
             <h1 class="title">
-                Hero title
+                สำนักงานประกันวินาศภัยดุรงค์ฤทธิ์
             </h1>
             <h2 class="subtitle">
-                Hero subtitle
+                ประกันภัยทุกชนิด, ประกันอุบัติเหตุ, ประกันอัคคีภัย, ประกันชีวิต
             </h2>
         </div>
     </section>

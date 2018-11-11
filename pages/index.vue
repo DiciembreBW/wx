@@ -1,28 +1,16 @@
 <template>
-  <div class="container">
-    <Header />
-    <Content />
+  <div>
+    <h1 class="title is-2">Index page</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit ea fuga recusandae quasi minus eveniet quas harum a. In ut labore hic mollitia ad expedita cupiditate delectus temporibus perspiciatis reiciendis.</p>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import Header from '~/components/html/header.vue'
-import Content from '~/components/html/Content.vue'
-
 export default {
   components: {
-    // Logo
-    Header, Content
   }
 }
 </script>
 
 <style>
-
-.container {
-  background-color: azure;
-  /* padding: 0 24px; */
-}
-
 </style>

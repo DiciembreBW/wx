@@ -1,8 +1,40 @@
 <template>
-  <div>
-    <nuxt/>
+  <div class="container">
+    <Header />
+
+    <section class="section">
+      <div class="columns">
+
+        <!-- left -->
+        <div class="column is-one-third">
+            <ul>
+                <li> <nuxt-link to="/">หน้าแรก</nuxt-link> </li>
+                <li> <nuxt-link to="/Brand">ยี่ห้อรถ</nuxt-link> </li>
+            </ul>
+        </div>
+
+        <!-- right -->
+        <div class="column">
+          <nuxt/>
+        </div>
+      </div>
+    </section>
+
+    <Footer />
   </div>
 </template>
+
+<script>
+  import Header from '@/components/html/Header.vue'
+  import Footer from '@/components/html/Footer.vue'
+
+  export default {
+    components: {
+      Header,
+      Footer
+    }
+  }
+</script>
 
 <style>
 html {

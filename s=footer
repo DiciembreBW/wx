@@ -1,0 +1,35 @@
+[33mcommit a3b9855bcc308f623bed27e8b11f701c7c171496[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: DiciembreBW <diciembrebw@gmail.com>
+Date:   Sun Nov 11 21:19:16 2018 +0700
+
+    refactoring html use nuxt layout
+
+[33mcommit d9761bc01cbb6ac6ac82d3a204028044fdeb0f06[m
+Author: DiciembreBW <diciembrebw@gmail.com>
+Date:   Sun Nov 11 20:27:16 2018 +0700
+
+    add axios
+
+[33mcommit 2fc9d93bb9173e0d080caf960d613080f1781902[m
+Author: DiciembreBW <diciembrebw@gmail.com>
+Date:   Sun Nov 11 20:18:10 2018 +0700
+
+    add brand page
+
+[33mcommit cef64fb70293121d4b57172d0e87d64db04d8a45[m
+Author: DiciembreBW <diciembrebw@gmail.com>
+Date:   Sun Nov 11 18:55:12 2018 +0700
+
+    start 1
+
+[33mcommit 5665cdc23ae104f0923896956116228cc40701cd[m
+Author: DiciembreBW <diciembrebw@gmail.com>
+Date:   Sun Nov 11 18:44:01 2018 +0700
+
+    remove readme.md
+
+[33mcommit c5bc55de0149807129ec399cff84d001122442b3[m
+Author: DiciembreBW <diciembrebw@gmail.com>
+Date:   Sun Nov 11 16:19:12 2018 +0700
+
+    wx start...

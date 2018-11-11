@@ -6,14 +6,12 @@
       <div class="columns">
 
         <!-- left -->
-        <div class="column is-one-third">
-            <ul>
-                <li> <nuxt-link to="/">หน้าแรก</nuxt-link> </li>
-                <li> <nuxt-link to="/Brand">ยี่ห้อรถ</nuxt-link> </li>
-            </ul>
+        <div class="column is-one-quarter">
+            <Navigator />
         </div>
 
         <!-- right -->
+        <!-- ******* content ******* -->
         <div class="column">
           <nuxt/>
         </div>
@@ -27,11 +25,13 @@
 <script>
   import Header from '@/components/html/Header.vue'
   import Footer from '@/components/html/Footer.vue'
+  import Navigator from '@/components/html/Navigator.vue'
 
   export default {
     components: {
       Header,
-      Footer
+      Footer,
+      Navigator
     }
   }
 </script>
@@ -56,32 +56,4 @@ html {
   margin: 0;
 }
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
-}
 </style>

@@ -1,0 +1,86 @@
+warning: LF will be replaced by CRLF in pages/index.vue.
+The file will have its original line endings in your working directory
+[1mdiff --git a/pages/index.vue b/pages/index.vue[m
+[1mindex 4c0a8fd..ee3cd4b 100644[m
+[1m--- a/pages/index.vue[m
+[1m+++ b/pages/index.vue[m
+[36m@@ -1,36 +1,19 @@[m
+ <template>[m
+[31m-  <section class="container">[m
+[31m-    <h1>[m
+[31m-      <nuxt-link to="/contact">contact</nuxt-link>[m
+[31m-    </h1>[m
+[31m-    <div>[m
+[31m-      <logo/>[m
+[31m-      <h1 class="title">[m
+[31m-        wx[m
+[31m-      </h1>[m
+[31m-      <h2 class="subtitle">[m
+[31m-        My lovely Nuxt.js project[m
+[31m-      </h2>[m
+[31m-      <div class="links">[m
+[31m-        <a[m
+[31m-          href="https://nuxtjs.org/"[m
+[31m-          target="_blank"[m
+[31m-          class="button--green">Documentation</a>[m
+[31m-        <a[m
+[31m-          href="https://github.com/nuxt/nuxt.js"[m
+[31m-          target="_blank"[m
+[31m-          class="button--grey">GitHub</a>[m
+[31m-      </div>[m
+[31m-    </div>[m
+[31m-  </section>[m
+[32m+[m[32m  <div class="container">[m
+[32m+[m[32m    <Header />[m
+[32m+[m[32m    <Content />[m
+[32m+[m[32m  </div>[m
+ </template>[m
+ [m
+ <script>[m
+ import Logo from '~/components/Logo.vue'[m
+[32m+[m[32mimport Header from '~/components/html/header.vue'[m
+[32m+[m[32mimport Content from '~/components/html/Content.vue'[m
+ [m
+ export default {[m
+   components: {[m
+[31m-    Logo[m
+[32m+[m[32m    // Logo[m
+[32m+[m[32m    Header, Content[m
+   }[m
+ }[m
+ </script>[m
+[36m@@ -38,32 +21,8 @@[m [mexport default {[m
+ <style>[m
+ [m
+ .container {[m
+[31m-  min-height: 100vh;[m
+[31m-  display: flex;[m
+[31m-  justify-content: center;[m
+[31m-  align-items: center;[m
+[31m-  text-align: center;[m
+[32m+[m[32m  background-color: azure;[m
+[32m+[m[32m  /* padding: 0 24px; */[m
+ }[m
+ [m
+[31m-.title {[m
+[31m-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,[m
+[31m-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;[m
+[31m-  display: block;[m
+[31m-  font-weight: 300;[m
+[31m-  font-size: 100px;[m
+[31m-  color: #35495e;[m
+[31m-  letter-spacing: 1px;[m
+[31m-}[m
+[31m-[m
+[31m-.subtitle {[m
+[31m-  font-weight: 300;[m
+[31m-  font-size: 42px;[m
+[31m-  color: #526488;[m
+[31m-  word-spacing: 5px;[m
+[31m-  padding-bottom: 15px;[m
+[31m-}[m
+[31m-[m
+[31m-.links {[m
+[31m-  padding-top: 15px;[m
+[31m-}[m
+ </style>[m

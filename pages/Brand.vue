@@ -5,22 +5,25 @@
     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione, sunt dolore rem quidem ut corporis inventore
       sint, accusantium quia aliquid amet tempore hic quae officiis rerum perferendis magni architecto! Necessitatibus!</p>
 
-    <v-input v-model="user.name"> name </v-input>
-    <v-input v-model="user.lastname"> lastname </v-input>
-    <v-input v-model="user.email"> email </v-input>
+    <ul>
+      <li>
+        <nuxt-link to="/manage/AddBrand">เพิ่ม</nuxt-link>
+      </li>
+    </ul>
 
-    <hr>
-    <pre> {{user}} </pre>
+    <button @click="complete">submit</button>
+
   </div>
 </template>
 
-<script>
 
-import Input from '@/components/form/input.vue'
+
+<script>
+  import Input from '@/components/form/input.vue'
 
   export default {
     components: {
-        'v-input': Input
+      'v-input': Input
     },
 
     data: () => {
@@ -33,8 +36,23 @@ import Input from '@/components/form/input.vue'
     },
 
     methods: {
-    }
+      complete: function () {}
+    },
+
+    computed: {}
 
   }
 
 </script>
+
+<style scoped>
+  ul {
+    display: flex;
+    justify-content: center;
+  }
+
+  ul>li {
+    padding: 8px 24px;
+  }
+
+</style>

@@ -1,6 +1,7 @@
 # wx
 
 > My lovely Nuxt.js project
+> โปรเจคเว็บพี่แว่น
 
 ## Build Setup
 

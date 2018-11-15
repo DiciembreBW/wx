@@ -1,15 +1,24 @@
 <template>
-  <div>
-    <label>
-      <slot>Label Input</slot>
-    </label>
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label"> <slot>label</slot> </label>
+    </div>
+
+    <div class="field-body">
+      <p class="control">
+        <input type="text" class="input" v-model="text">
+
+        <!-- <span class="icon is-small is-right" v-if="text" @click="clear">
+          <i class="fas fa-check">x</i>
+        </span> -->
+      </p>
+    </div>
+    
     <!-- pass direct -->
     <!-- <input type="text" @input="$emit('input', $event.target.value)"> -->
 
     <!-- pass watch -->
-    <input type="text" v-model="text">
 
-    <button @click="clear" v-if="text">x</button>
     
   </div>
 </template>
@@ -42,7 +51,7 @@
 </script>
 
 <style scoped>
-  div {
+  /* div {
     padding: 24px 0;
   }
 
@@ -50,6 +59,6 @@
     border-radius: 21px;
     border: 1px solid gray;
     padding: 4px 12px;
-  }
+  } */
 
 </style>

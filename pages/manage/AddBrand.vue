@@ -1,8 +1,15 @@
 <template>
   <div>
     <h1>เพิ่ม</h1>
-    <v-input v-model="data.name">name</v-input>
-    <v-input v-model="data.version">version</v-input>
+    <v-input v-model="data.text">ยี่ห้อรถ</v-input>
+    <button class="button" @click="push">เพิ่ม</button>
+    <hr>
+    <ol>
+      <li v-for="(item, index) in brand" :key="index"> {{item}} </li>
+    </ol>
+    <p>
+      <button @click="save">บันทึก</button>
+    </p>
   </div>
 </template>
 
@@ -16,13 +23,18 @@
     },
     data: () => {
       return {
-        data: {
-          brand: []
-        },
+        brand: [],
+        data: {}
       }
     },
 
     methods: {
+      push: function (e) {
+        let {brand, data} = this
+        brand.push(data.text)
+      },
+      save: function () {
+      }
     }
     
   }

@@ -17,6 +17,9 @@
   // import components
   import Input from '@/components/form/input'
 
+  // https://medium.com/@pascalluther/nuxt-js-v1-firestore-and-ssr-73e3140574fc
+  import { fireDb } from '~/plugins/firebase.js'
+
   export default {
     components: {
       'v-input': Input

@@ -8,6 +8,10 @@
 <script>
 export default {
   components: {
+  },
+  asyncData(context) {
+    // use context
+    context.app.test('Hello')
   }
 }
 </script>

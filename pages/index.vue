@@ -34,7 +34,14 @@ export default {
   methods: {
   // ใช้ methods จาก plugins
     add: function (context) {
-      this.$test()
+      var a = this.$brand.
+      set({
+          collectionName: 'brand',
+          data: {
+            name: this.test,
+            lastname: 'boonsutat'
+          }
+        }).add()
       // console.log(context)
     }
   //

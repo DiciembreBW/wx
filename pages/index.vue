@@ -39,7 +39,6 @@ export default {
           collectionName: 'brand',
           data: {
             name: this.test,
-            lastname: 'boonsutat'
           }
         }).add()
       // console.log(context)

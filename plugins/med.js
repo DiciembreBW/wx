@@ -18,18 +18,17 @@ Vue.prototype.$brand = {
     set: function (args) {
        this.value = args
         // set ref
-        this.value.ref = fireDb.collection(args.collectionName)
+        this.value.ref = fireDb.collection('root').doc(args.collectionName)
 
         return this 
     },
     get: function () {
-        console.log(this.value)
         return this
     },
     add: function () {
         let {ref, data} = this.value
 
-        ref.add(data)
+        ref.collection(data.name).add(data)
     } 
 }
 // 

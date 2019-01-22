@@ -27,6 +27,8 @@ module.exports = {
   ** Global CSS
   */
   css: [
+    // impprt vue-multiselect style
+    { src: 'vue-multiselect/dist/vue-multiselect.min.css', lang: 'css' }
   ],
 
   /*

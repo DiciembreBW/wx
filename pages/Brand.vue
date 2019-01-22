@@ -3,8 +3,6 @@
     <h1 class="title is-2">brand</h1>
 
       <pre>{{data}}</pre>
-      <xx :options="xa"></xx>
-
       <hr>
       <p class="title">ข้อมูลรถ</p>
       <I v-model="data.car.brand" types="input" > ยี่ห้อ </I>

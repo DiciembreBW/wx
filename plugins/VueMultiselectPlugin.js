@@ -6,4 +6,6 @@ import Vue from 'vue'
 import multiselect from 'vue-multiselect'
 
 // 2. register global component
-Vue.component('vue-m', multiselect)
+Vue.component('vue-multiselect', multiselect)
+
+//user vue-multiselect tag 

@@ -36,7 +36,9 @@ module.exports = {
     {src: '~/plugins/firebase.js', ssr: false},
 
     // เพิ่ม plugin ในไฟล์ config
-    '~/plugins/med.js'
+    '~/plugins/med.js',
+
+    '@/plugins/VueMultiselectPlugin.js'
   ],
 
   /*

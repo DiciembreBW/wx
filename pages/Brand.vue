@@ -2,11 +2,10 @@
   <div>
     <h1 class="title is-2">brand</h1>
 
-      <pre>{{data}}</pre>
       
       <hr>
       <p class="title">ข้อมูลรถ</p>
-      <v-multiselct v-model="data.car.brand" :data="['toyota', 'mazda', 'honda']"> ยี่ห้อ </v-multiselct>
+      <v-multiselct v-model="data.car.brand" :data="carBrand"> ยี่ห้อ </v-multiselct>
       <v-multiselct v-model="data.car.version" :data="['v1', 'v2', '2']"> รุ่นรถ  </v-multiselct>
       <I v-model="data.car.cc" types="number"> ขนาดเครื่องยนต์</I>
       <I v-model="data.car.color"  types="input" > สีรถ</I>
@@ -39,6 +38,11 @@
   import IDCardComponent from '@/components/form/IDCardComponent.vue'
   import SelectComponent from '@/components/form/SelectComponent.vue'
   import {fireDb} from '@/plugins/firebase.js'
+
+  import carlist from '@/static/car-list.json'
+
+  import {a} from '@/plugins/boydPlugins'
+
 
   export default {
     components: {
@@ -77,10 +81,13 @@
     },
 
     methods: {
-      p: e => console.log(e)
     },
 
-    computed: {}
+    computed: {
+      carBrand: function () {
+        return a.$_arr(carlist, 'brand')
+      }
+    }
 
   }
 

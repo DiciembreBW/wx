@@ -1,7 +1,7 @@
 import _ from 'lodash'
 
 export let a = {
-    $_arr () {
-        console.log('passs')
+    $_arr (arr, key) {
+        return _.map(arr, key)
     }
 }

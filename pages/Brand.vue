@@ -2,19 +2,23 @@
   <div>
     <h1 class="title is-2">brand</h1>
 
-      
       <hr>
+      <pre> {{data.car}} </pre>
       <p class="title">ข้อมูลรถ</p>
       <v-multiselct v-model="data.car.brand" :data="carBrand"> ยี่ห้อ </v-multiselct>
-      <v-multiselct v-model="data.car.version" :data="['v1', 'v2', '2']"> รุ่นรถ  </v-multiselct>
+      <!-- {{versionComp}} -->
+      <v-multiselct v-model="data.car.version" :data="versionComp"> รุ่นรถ  </v-multiselct>
       <I v-model="data.car.cc" types="number"> ขนาดเครื่องยนต์</I>
-      <I v-model="data.car.color"  types="input" > สีรถ</I>
-      <I v-model="data.car.years" types="number"> ปีรถ</I>
+      <!-- <I v-model="data.car.color"  types="input" ></I> -->
+      <v-multiselct v-model="data.car.color" :data="['แดง', 'เหลือง', 'น้ำเงิน', 'ดำ']"> สีรถ</v-multiselct>
+      <I v-model="data.car.years" types="number"> ปีรถ (พ.ศ.)</I>
       <hr>
       <p class="title">ข้อมูลเจ้าของรถ</p>
+      <pre> {{data.customer}} </pre>
       <v-idcard v-model="data.customer.id" elementName="idCard"> เลขบัตรประจำตัวประชาชน</v-idcard>
-      <I v-model="data.firstname" types="input"> ชื่อ</I>
-      <I v-model="data.lastname" types="input"> นามสกุล</I>
+      <I v-model="data.customer.firstname" types="input"> ชื่อ</I>
+      <I v-model="data.customer.lastname" types="input"> นามสกุล</I>
+      <I v-model="data.customer.address" types="input">ที่อยู่</I>
         เพศ
       <v-radio v-model="data.customer.sex" :items="['ชาย', 'หญิง']"></v-radio>
       <v-phone v-model="data.customer.phone" elementName="tel"> เบอร์โทรศัพท์</v-phone>
@@ -42,6 +46,7 @@
   import carlist from '@/static/car-list.json'
 
   import {a} from '@/plugins/boydPlugins'
+  import _ from 'lodash'
 
 
   export default {
@@ -80,14 +85,31 @@
       }
     },
 
+    watch: {},
+
     methods: {
     },
 
     computed: {
       carBrand: function () {
         return a.$_arr(carlist, 'brand')
+      },
+
+      versionComp: function () {
+        let version = []
+        let {car} = this.data
+
+        let selected = car.brand
+        // let brands = _.map(carlist, 'brand')
+        _.map(carlist, item => {
+          if (item.brand === selected) {
+            // version.push(item)
+            version = item.models
+          }
+        })
+        return version
       }
-    }
+    },
 
   }
 

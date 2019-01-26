@@ -3,11 +3,11 @@
     <div class="columns">
       <div class="column class">
         <h1 class="title is-4">ข้อมูลรถ</h1>
-          <!-- <select-component :data="CarData"></select-component> -->
           <car-component v-model="data.car"/>
-          <input-component>ปี (พ.ศ.)</input-component>
-          <input-component>สีรถ</input-component>
+          <cleave-component :config="{blocks: [4]}" elementName="car-year">ปี (พ.ศ.)</cleave-component>
+          <select-component :data="Car.color">สีรถ</select-component>
           <input-component>ขนาดเครื่องยนต์</input-component>
+          <cleave-component :config="{blocks: [4]}" elementName="car-year">ปี (พ.ศ.)</cleave-component>
           <pre> {{data}} </pre>
       </div>
       

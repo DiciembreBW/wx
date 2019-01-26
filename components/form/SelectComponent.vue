@@ -1,10 +1,15 @@
 <template>
     <div class="field">
-        <!-- user vue-multiselect library -->
         <label class="label is-size-7">
             <slot>label</slot>
         </label>
-        <vue-multiselect v-model="inputValue" :options="data"></vue-multiselect>
+        <div class="control">
+            <div class="select" >
+                <select style="width: 100%">
+                    <option v-for="(item, index) in data" :key="index" value="item"> {{item}} </option>
+                </select>
+            </div>
+        </div>
     </div>
 </template>
 

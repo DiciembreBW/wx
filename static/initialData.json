@@ -11,5 +11,8 @@
             "date": true,
             "datePattern": ["d", "m", "Y"]
         }
+    },
+    "Car": {
+        "color": ["แดง", "เหลือง"]
     }
 }

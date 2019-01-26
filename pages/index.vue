@@ -4,12 +4,13 @@
       <div class="column class">
         <h1 class="title is-4">ข้อมูลรถ</h1>
           <!-- <select-component :data="CarData"></select-component> -->
+          <car-component v-model="data.car"/>
           <input-component>ยี่ห้อรถ</input-component>
           <input-component>รุ่นรถ</input-component>
           <input-component>ปี (พ.ศ.)</input-component>
           <input-component>สีรถ</input-component>
           <input-component>ขนาดเครื่องยนต์</input-component>
-          <pre> {{CarData}} </pre>
+          <pre> {{data}} </pre>
       </div>
       
       <div class="column class">
@@ -39,6 +40,7 @@
 import InputComponent from '@/components/form/InputComponent'
 import SelectComponent from '@/components/form/SelectComponent'
 import CleaveComponent from '@/components/form/CleaveComponent'
+import CarComponent from '@/components/CarComponent'
 
 // data
 import InitialData from '@/static/initialData.json'
@@ -47,14 +49,16 @@ import CarData from '@/static/car-list.json'
 export default {
   data: function () {
     return {
-      ...InitialData
+      ...InitialData,
+      data: {}
     }
   },
 
   components: {
     InputComponent,
     SelectComponent,
-    CleaveComponent
+    CleaveComponent,
+    CarComponent
   }
 }
 </script>

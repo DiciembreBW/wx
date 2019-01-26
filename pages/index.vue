@@ -5,8 +5,6 @@
         <h1 class="title is-4">ข้อมูลรถ</h1>
           <!-- <select-component :data="CarData"></select-component> -->
           <car-component v-model="data.car"/>
-          <input-component>ยี่ห้อรถ</input-component>
-          <input-component>รุ่นรถ</input-component>
           <input-component>ปี (พ.ศ.)</input-component>
           <input-component>สีรถ</input-component>
           <input-component>ขนาดเครื่องยนต์</input-component>

@@ -6,6 +6,7 @@
             <div class="control">
                 <div class="select">
                     <select v-model="selected">
+                        <option selected disabled>---------------------------</option>
                         <option v-for="(item, index) in CarData" :key="index" :value="item.brand"> {{item.brand}} </option>
                     </select>
                 </div>
@@ -17,6 +18,7 @@
             <div class="control">
                 <div class="select">
                     <select v-model="versionSelected">
+                        <option selected disabled>---------------------------</option>
                         <option v-for="(item, index) in versionData" :key="index" :value="item"> {{item}} </option>
                     </select>
                 </div>

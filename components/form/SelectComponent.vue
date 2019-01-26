@@ -5,8 +5,8 @@
         </label>
         <div class="control">
             <div class="select" >
-                <select style="width: 100%">
-                    <option v-for="(item, index) in data" :key="index" value="item"> {{item}} </option>
+                <select v-model="inputValue">
+                    <option v-for="(item, index) in data" :key="index" :value="item"> {{item}} </option>
                 </select>
             </div>
         </div>

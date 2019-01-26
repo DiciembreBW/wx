@@ -3,12 +3,11 @@
     <div class="columns">
       <div class="column class">
         <h1 class="title is-4">ข้อมูลรถ</h1>
-          <car-component v-model="data.car"/>
-          <cleave-component :config="{blocks: [4]}" elementName="car-year">ปี (พ.ศ.)</cleave-component>
-          <select-component :data="Car.color">สีรถ</select-component>
-          <input-component>ขนาดเครื่องยนต์</input-component>
-          <cleave-component :config="{blocks: [4]}" elementName="car-year">ปี (พ.ศ.)</cleave-component>
-          <pre> {{data}} </pre>
+          <car-component v-model="value.car"/>
+          <cleave-component v-model="value.car.years" :config="{blocks: [4]}" elementName="car-year">ปี (พ.ศ.)</cleave-component>
+          <select-component v-model="value.car.color" :data="Car.color">สีรถ</select-component>
+          <input-component v-model="value.car.cc" >ขนาดเครื่องยนต์</input-component>
+          <pre> {{value}} </pre>
       </div>
       
       <div class="column class">
@@ -48,7 +47,9 @@ export default {
   data: function () {
     return {
       ...InitialData,
-      data: {}
+      value: {
+        car: {}
+      }
     }
   },
 

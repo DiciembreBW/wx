@@ -10,12 +10,12 @@
       หน้าแรก
     </nuxt-link>
 
-    <nuxt-link to="/brand" class="panel-block is-active">
+    <!-- <nuxt-link to="/brand" class="panel-block is-active">
       <span class="panel-icon">
         <i class="fas fa-book" aria-hidden="true"></i>
       </span>
       ยี่ห้อรถ
-    </nuxt-link>
+    </nuxt-link> -->
 
   </nav>
 </template>

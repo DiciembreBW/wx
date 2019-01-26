@@ -13,6 +13,10 @@ module.exports = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: pkg.description }
     ],
+
+    script: [
+    ],
+    
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
@@ -35,10 +39,10 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    {src: '~/plugins/firebase.js', ssr: false},
+    // {src: '~/plugins/firebase.js', ssr: false},
 
     // เพิ่ม plugin ในไฟล์ config
-    '~/plugins/med.js',
+    // '~/plugins/med.js',
 
     '@/plugins/VueMultiselectPlugin.js'
   ],

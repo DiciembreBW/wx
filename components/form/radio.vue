@@ -1,8 +1,11 @@
 <template>
     <div>
-        <li v-for="(item, index) in items" :key="index" style="list-style: none">
-             {{item}} <input type="radio" v-model="inputValue" :value="item">
-        </li>
+        <ul>
+            <label> <slot>label</slot> </label>
+            <li v-for="(item, index) in items" :key="index" style="list-style: none" >
+                {{item}} <input type="radio" v-model="inputValue" :value="item">
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -21,6 +24,7 @@ export default {
         inputValue (value) {
             this.$emit('input', value)
         }
-    },
+    }
+    
 }
 </script>

@@ -1,7 +1,9 @@
 <template>
-    <div>
+    <div class="field">
         <!-- user vue-multiselect library -->
-        <label> <slot>label</slot> </label>
+        <label class="label is-size-7">
+            <slot>label</slot>
+        </label>
         <vue-multiselect v-model="inputValue" :options="data"></vue-multiselect>
     </div>
 </template>

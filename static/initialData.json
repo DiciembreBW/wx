@@ -1,0 +1,15 @@
+{
+    "customer": {
+        "sex": ["ชาย", "หญิง"]
+    },
+    "Cleave": {
+        "idCardFormat": {
+            "delimiter": "-",
+            "blocks": [1, 4, 5, 2, 1]
+        },
+        "dateFormat": {
+            "date": true,
+            "datePattern": ["d", "m", "Y"]
+        }
+    }
+}

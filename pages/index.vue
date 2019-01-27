@@ -28,7 +28,7 @@
           <!-- <pre> {{value.info}} </pre> -->
       </div>
     </div>
-    <div class="row"> <button class="button is-info">บันทึก</button></div>
+    <div class="row"> <button class="button is-info" @click="apply">บันทึก</button></div>
     <!-- <h1 class="title is-2">หน้าแรก</h1> -->
   </div>
 </template>
@@ -61,6 +61,13 @@ export default {
     SelectComponent,
     CleaveComponent,
     CarComponent
+  },
+
+  methods: {
+    apply: function () {
+      let value = this.value
+      console.log(value)
+    }
   }
 }
 </script>

@@ -18,7 +18,8 @@ module.exports = {
     ],
     
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Mitr' }
     ]
   },
 
@@ -32,7 +33,8 @@ module.exports = {
   */
   css: [
     // impprt vue-multiselect style
-    { src: 'vue-multiselect/dist/vue-multiselect.min.css', lang: 'css' }
+    { src: 'vue-multiselect/dist/vue-multiselect.min.css', lang: 'css' },
+    { src: '@/assets/css/style.css', lang: 'css' }
   ],
 
   /*

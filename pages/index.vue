@@ -44,6 +44,9 @@ import CarComponent from '@/components/CarComponent'
 import InitialData from '@/static/initialData.json'
 import CarData from '@/static/car-list.json'
 
+//firestore
+import {db} from '@/plugins/Firestore'
+
 export default {
   data: function () {
     return {

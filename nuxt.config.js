@@ -41,7 +41,8 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    // {src: '~/plugins/firebase.js', ssr: false},
+    // import Firestore plugin
+    {src: '@/plugins/Firestore.js', ssr: false},
 
     // เพิ่ม plugin ในไฟล์ config
     // '~/plugins/med.js',

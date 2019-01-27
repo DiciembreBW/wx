@@ -10,6 +10,13 @@
       หน้าแรก
     </nuxt-link>
 
+    <nuxt-link to="/addItemPage" class="panel-block is-active">
+      <span class="panel-icon">
+        <i class="fas fa-book" aria-hidden="true"></i>
+      </span>
+      เพิ่มข้อมูล
+    </nuxt-link>
+
     <nuxt-link to="/brand" class="panel-block is-active">
       <span class="panel-icon">
         <i class="fas fa-book" aria-hidden="true"></i>

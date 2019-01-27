@@ -1,5 +1,6 @@
 <template>
   <div>
+    <items-component :data="itemsData"/>
     <div class="columns">
       <div class="column class">
         <h1 class="title is-4">ข้อมูลรถ</h1>
@@ -39,6 +40,7 @@ import InputComponent from '@/components/form/InputComponent'
 import SelectComponent from '@/components/form/SelectComponent'
 import CleaveComponent from '@/components/form/CleaveComponent'
 import CarComponent from '@/components/CarComponent'
+import ItemsComponent from '@/components/ItemsComponent'
 
 // data
 import InitialData from '@/static/initialData.json'
@@ -48,6 +50,14 @@ import CarData from '@/static/car-list.json'
 import {db} from '@/plugins/Firestore'
 
 export default {
+  mounted () {
+    db.collection('cars').get().then(snapshot => {
+      snapshot.forEach(docRef => {
+        this.itemsData.push(docRef.data())
+      })
+    })
+  },
+  
   data: function () {
     return {
       ...InitialData,
@@ -55,7 +65,8 @@ export default {
         car: {},
         customer: {},
         info: {}
-      }
+      },
+      itemsData: []
     }
   },
 
@@ -63,13 +74,28 @@ export default {
     InputComponent,
     SelectComponent,
     CleaveComponent,
-    CarComponent
+    CarComponent,
+    ItemsComponent
   },
 
   methods: {
     apply: function () {
       let value = this.value
-      console.log(value)
+      db.collection('cars').add({
+        ...this.value
+      })
+      .then(docRef => {
+        console.log('doc ref', docRef)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+    }
+  },
+
+  computed: {
+    itemsComp: function () {
+
     }
   }
 }

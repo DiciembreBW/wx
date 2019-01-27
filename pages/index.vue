@@ -3,31 +3,32 @@
     <div class="columns">
       <div class="column class">
         <h1 class="title is-4">ข้อมูลรถ</h1>
-          <car-component v-model="value.car"/>
+          <car-component v-model="value.carbrand"/>
           <cleave-component v-model="value.car.years" :config="{blocks: [4]}" elementName="car-year">ปี (พ.ศ.)</cleave-component>
           <select-component v-model="value.car.color" :data="Car.color">สีรถ</select-component>
           <input-component v-model="value.car.cc" >ขนาดเครื่องยนต์</input-component>
-          <pre> {{value}} </pre>
+          <!-- <pre> {{value}} </pre> -->
       </div>
       
       <div class="column class">
         <h1 class="title is-4">ข้อมูลลูกค้า</h1>
-          <input-component>ชื่อ</input-component>
-          <input-component>นามสกุล</input-component>
-          <select-component :data="customer.sex">เพศ</select-component>
-          <input-component>ที่อยู่</input-component>
-          <cleave-component :config="Cleave.idCardFormat" elementName="id-card">เลขบัตรประจำตัวประชาชน</cleave-component>
+          <input-component v-model="value.customer.fistname">ชื่อ</input-component>
+          <input-component v-model="value.customer.lastname">นามสกุล</input-component>
+          <select-component v-model="value.customer.sex" :data="customer.sex">เพศ</select-component>
+          <input-component v-model="value.customer.address">ที่อยู่</input-component>
+          <cleave-component v-model="value.customer.idcard" :config="Cleave.idCardFormat" elementName="id-card">เลขบัตรประจำตัวประชาชน</cleave-component>
+          <!-- <pre> {{value.customer}} </pre> -->
       </div>
       
       <div class="column class">
         <h1 class="title is-4">ข้อมูลเอกสารต่างๆ</h1>
-          <cleave-component :config="Cleave.dateFormat" elementName="x1">วันหมดประกัน (วัน/เดือน/ปี พ.ศ.)</cleave-component>
-          <cleave-component :config="Cleave.dateFormat" elementName="x2">วันหมดภาษี (วัน/เดือน/ปี พ.ศ.)</cleave-component>
-          <cleave-component :config="Cleave.dateFormat" elementName="x3">วันหมดกรรมธรรม์(วัน/เดือน/ปี พ.ศ.)</cleave-component>
-
+          <cleave-component v-model="value.info.pragun" :config="Cleave.dateFormat" elementName="x1">วันหมดประกัน (วัน/เดือน/ปี พ.ศ.)</cleave-component>
+          <cleave-component v-model="value.info.pasee" :config="Cleave.dateFormat" elementName="x2">วันหมดภาษี (วัน/เดือน/ปี พ.ศ.)</cleave-component>
+          <cleave-component v-model="value.info.grommatun" :config="Cleave.dateFormat" elementName="x3">วันหมดกรรมธรรม์(วัน/เดือน/ปี พ.ศ.)</cleave-component>
+          <!-- <pre> {{value.info}} </pre> -->
       </div>
     </div>
-    <div class="row"> <button class="button is-submit">บันทึก</button></div>
+    <div class="row"> <button class="button is-info">บันทึก</button></div>
     <!-- <h1 class="title is-2">หน้าแรก</h1> -->
   </div>
 </template>
@@ -48,7 +49,9 @@ export default {
     return {
       ...InitialData,
       value: {
-        car: {}
+        car: {},
+        customer: {},
+        info: {}
       }
     }
   },
@@ -62,5 +65,8 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.button {
+  width: 100%;
+}
 </style>

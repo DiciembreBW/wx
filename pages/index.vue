@@ -1,6 +1,13 @@
 <template>
   <div>
-    <items-component :data="itemsData"/>
+    <!-- <items-component :data="itemsData"/> -->
+    <div class="card" v-for="(item, index) in itemsData" :key="index">
+      <div class="card-header">
+        <p class="card-header-title" v-if="item.carbrand">
+          {{item.carbrand.name}} {{item.carbrand.version}}
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 

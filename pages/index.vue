@@ -2,7 +2,7 @@
   <div>
     <!-- <items-component :data="text"/> -->
     <li v-for="(item, index) in text" :key="index">
-      <nuxt-link :to="{name: 'ItemPage', params: item.id}"> {{item.id}} </nuxt-link>
+      <nuxt-link :to="'item/'+item.id"> {{item.id}} </nuxt-link>
     </li>
   </div>
 </template>

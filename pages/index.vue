@@ -1,15 +1,19 @@
 <template>
   <div>
     <!-- <items-component :data="text"/> -->
-    <li v-for="(item, index) in text" :key="index">
-      <nuxt-link :to="'item/'+item.id"> {{item.id}} </nuxt-link>
-    </li>
+    <div v-for="(item, index) in text" :key="index">
+      <nuxt-link :to="'item/'+item.id">  
+        <item-on-index-component :data="item" />
+      </nuxt-link>
+    </div>
+
   </div>
 </template>
 
 <script>
 // import component
 import ItemsComponent from '@/components/ItemsComponent'
+import ItemOnIndexComponent from '@/components/ItemOnIndexComponent'
 import {fireDb} from '@/plugins/Firestore'
 
 export default {
@@ -31,7 +35,8 @@ export default {
   },
 
   components: {
-    ItemsComponent
+    ItemsComponent,
+    ItemOnIndexComponent
   }
   
 }

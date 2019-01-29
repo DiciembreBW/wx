@@ -14,5 +14,20 @@
     },
     "Car": {
         "color": ["แดง", "เหลือง"]
-    }
+    },
+    "fields": [
+        {"field": "name", "desc": ""},
+        {"field": "version", "desc": ""},
+        {"field": "year", "desc": ""},
+        {"field": "color", "desc": ""},
+        {"field": "cc", "desc": ""},
+        {"field": "firstname", "desc": ""},
+        {"field": "lastname", "desc": ""},
+        {"field": "sex", "desc": ""},
+        {"field": "address", "desc": ""},
+        {"field": "idcard", "desc": ""},
+        {"field": "pragun", "desc": ""},
+        {"field": "pasee", "desc": ""},
+        {"field": "grommatun", "desc": ""}
+    ]
 }

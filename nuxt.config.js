@@ -42,7 +42,8 @@ module.exports = {
   */
   plugins: [
     // import Firestore plugin
-    {src: '@/plugins/Firestore.js', ssr: false},
+    // {src: '@/plugins/Firestore.js', ssr: false},
+    '@/plugins/Firestore.js',
 
     // เพิ่ม plugin ในไฟล์ config
     // '~/plugins/med.js',

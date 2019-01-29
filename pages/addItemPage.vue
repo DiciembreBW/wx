@@ -45,11 +45,11 @@ import InitialData from '@/static/initialData.json'
 import CarData from '@/static/car-list.json'
 
 //firestore
-import {db} from '@/plugins/Firestore'
+import {fireDb} from '@/plugins/Firestore'
 
 export default {
   mounted () {
-    db.collection('cars').get().then(snapshot => {
+    fireDb.collection('cars').get().then(snapshot => {
       snapshot.forEach(docRef => {
         this.itemsData.push(docRef.data())
       })
@@ -78,7 +78,7 @@ export default {
   methods: {
     apply: function () {
       let value = this.value
-      db.collection('cars').add({
+      fireDb.collection('cars').add({
         ...this.value
       })
       .then(docRef => {

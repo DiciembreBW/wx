@@ -1,12 +1,17 @@
 <template>
   <div>
+    <div class="row">
+      <search-component v-model="search"/>
+    </div>
+    <div class="row">
     <div class="item">
       <div v-for="(item, index) in data" :key="index">
         <nuxt-link :to="'item/' + item._key">
           <item-on-index-component :data="item"/>
         </nuxt-link>
       </div>
-    </div>   
+    </div>
+    </div>
       <!-- <pre> {{data}} </pre> -->
   </div>
 </template>
@@ -16,9 +21,9 @@
 import ItemsComponent from '@/components/ItemsComponent'
 import ItemOnIndexComponent from '@/components/ItemOnIndexComponent'
 import SelectComponent from '@/components/form/SelectComponent'
+import SearchComponent from '@/components/SearchComponent'
 import {fireDb} from '@/plugins/Firestore'
 
-import Data from '@/static/initialData.json'
 import {Firestore} from '@/plugins/boydPlugins'
 
 
@@ -27,17 +32,23 @@ export default {
   async asyncData() {
     let data = await Firestore.get({databaseName: 'cars'})
     return {
-      data: data
+      data: data,
+      search: ''
     }
   },
 
   components: {
     ItemsComponent,
     ItemOnIndexComponent,
-    SelectComponent
+    SelectComponent,
+    SearchComponent
   },
 
-  methods: {
+  watch: {
+    async search (value) {
+      let callbackData = await Firestore.getWhere(value)
+      this.data = callbackData
+    }
   }
   
 }

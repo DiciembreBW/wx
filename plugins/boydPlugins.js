@@ -23,5 +23,13 @@ export let Firestore = {
                 resolve(doc.data())
             })
         })
+    },
+        
+    // https://cloud.google.com/firestore/docs/query-data/get-data
+    getWhere: function ({type, value}) {
+        return new Promise((resolve, reject) => {
+            let ref = fireDb.collection('cars').where(type, '==', value).get()
+            resolve(etc.querydatafromfirestore(ref))
+        })
     }
 }

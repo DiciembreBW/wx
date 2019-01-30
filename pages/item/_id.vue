@@ -1,31 +1,22 @@
 <template>
     <div>
-        <!-- {{$route.params.id}} -->
-        <!-- {{item}} -->
         <items-component :data="item"></items-component>
     </div>
 </template>
 <script>
 import ItemsComponent from '@/components/ItemsComponent'
-import {fireDb} from '@/plugins/Firestore'
+import  {Firestore} from '@/plugins/boydPlugins'
 
+// Firestore.getDoc({databaseName: 'cars'})
 export default {
     components: {
         ItemsComponent
     },
     async asyncData({app, params, error}) {
+        let data = await Firestore.getDoc({databaseName: 'cars', docName: params.id})
         // read data from firestore
-        const ref = fireDb.collection('cars').doc(params.id)
-
-        let snap
-        try {
-            snap = await ref.get()
-        } catch (err) {
-            console.log(err)
-        }
-
         return {
-            item: snap.data()
+            item: data
         }
     }
 }

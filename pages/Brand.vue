@@ -38,7 +38,7 @@
 
   import carlist from '@/static/car-list.json'
 
-  import {a} from '@/plugins/boydPlugins'
+  // import {a} from '@/plugins/boydPlugins'
   import _ from 'lodash'
 
 
@@ -70,7 +70,7 @@
 
     computed: {
       carBrand: function () {
-        return a.$_arr(carlist, 'brand')
+        // return a.$_arr(carlist, 'brand')
       },
 
       versionComp: function () {

@@ -65,7 +65,7 @@ export default {
 
         versionSelected (event) {
             this.$emit('input', {
-                name: this.selected,
+                brand: this.selected,
                 version: event
             })
             // console.log(e)

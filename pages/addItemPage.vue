@@ -1,6 +1,5 @@
 <template>
   <div>
-      <pre> {{value}} </pre>
     <div class="columns">
       <div class="column class">
         <h1 class="title is-4">ข้อมูลรถ</h1>

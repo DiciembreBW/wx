@@ -1,29 +1,13 @@
 <template>
   <div>
-    
-    <!-- <select-component :data="fields"></select-component> -->
-
-    <select v-model="fieldSearch">
-      <option v-for="(item, index) in fields" :key="index" :value="item.field">
-        {{item.field}}
-      </option>
-    </select>
-
-    {{fieldSearch}}
-    
-    <div class="field">
-      <label class="label"></label>
-      <div class="control">
-        <input type="text" @keyup.enter="searchItemFormFirestore($event)" class="input" placeholder="ค้นหา">
+    <div class="item">
+      <div v-for="(item, index) in data" :key="index">
+        <nuxt-link :to="'item/' + item._key">
+          <item-on-index-component :data="item"/>
+        </nuxt-link>
       </div>
-    </div>
-
-    <div v-for="(item, index) in text" :key="index">
-      <nuxt-link :to="'item/'+item.id">  
-        <item-on-index-component :data="item" />
-      </nuxt-link>
-    </div>
-
+    </div>   
+      <!-- <pre> {{data}} </pre> -->
   </div>
 </template>
 
@@ -35,24 +19,15 @@ import SelectComponent from '@/components/form/SelectComponent'
 import {fireDb} from '@/plugins/Firestore'
 
 import Data from '@/static/initialData.json'
+import {Firestore} from '@/plugins/boydPlugins'
+
 
 export default {
   
-  async asyncData ({app, params, error}) {
-    let item = []
-    const ref = fireDb.collection('cars').get().then(e=> {
-      e.forEach(snap => {
-        item.push({
-          ...snap.data(),
-          id: snap.id
-        })
-      })
-    })
-
+  async asyncData() {
+    let data = await Firestore.get({databaseName: 'cars'})
     return {
-      text: item,
-      fields: Data.fields,
-      fieldSearch: ''
+      data: data
     }
   },
 
@@ -63,14 +38,16 @@ export default {
   },
 
   methods: {
-    searchItemFormFirestore: async function (event) {
-      let value = event.target.value
-      console.log(value)
-    }
   }
   
 }
 </script>
 
-<style>
+<style scoped>
+.item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 </style>

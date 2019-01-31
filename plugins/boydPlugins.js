@@ -33,6 +33,7 @@ export let Firestore = {
         })
     },
 
+    // remove
     removeDoc: function  ({databaseName, id}) {
         let ref = fireDb.collection(databaseName)
             .doc(id)
@@ -41,5 +42,15 @@ export let Firestore = {
                 console.log(id, 'is deleted')
             })
 
+    },
+
+    // push data
+    add: function({databaseName, value}) {
+        fireDb.collection(databaseName).add({
+            ...value
+        })
+        // fireDb.collection(databaseName).add({
+        //     ...value
+        // })
     }
 }

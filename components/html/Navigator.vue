@@ -24,5 +24,12 @@
       ยี่ห้อรถ
     </nuxt-link>
 
+    <nuxt-link to="/CustomerPage" class="panel-block is-active">
+      <span class="panel-icon">
+        <i class="fas fa-book" aria-hidden="true"></i>
+      </span>
+      ระบบจัดการข้อมูลลูกค้า
+    </nuxt-link>
+
   </nav>
 </template>

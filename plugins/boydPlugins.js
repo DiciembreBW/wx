@@ -31,5 +31,15 @@ export let Firestore = {
             let ref = fireDb.collection('cars').where(type, '==', value).get()
             resolve(etc.querydatafromfirestore(ref))
         })
+    },
+
+    removeDoc: function  ({databaseName, id}) {
+        let ref = fireDb.collection(databaseName)
+            .doc(id)
+            .delete()
+            .then(()=> {
+                console.log(id, 'is deleted')
+            })
+
     }
 }

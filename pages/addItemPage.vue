@@ -79,6 +79,7 @@ export default {
       })
       .then(docRef => {
         console.log('doc ref', docRef)
+        this.$router.push('/')
       })
       .catch(err => {
         console.log(err)

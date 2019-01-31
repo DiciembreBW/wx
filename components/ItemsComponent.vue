@@ -2,7 +2,10 @@
     <div>
         <div class="card" style="margin-bottom: 8px">
         <div class="card-header">
-            <p class="card-header-title" v-if="data.brand">{{data.brand}} {{data.version}} </p>
+            <p class="card-header-title" v-if="data">
+                {{data.brand}} {{data.version}}
+                <a @click="remove">ลบ</a>
+            </p>
         </div>
         <div class="card-content">
             <div class="content">
@@ -32,6 +35,8 @@
 </template>
 
 <script>
+import {Firestore} from '@/plugins/boydPlugins'
+
 export default {
     props: {
         data: {type: Object, required: true}
@@ -40,6 +45,20 @@ export default {
     data: function () {
         return {
         }
+    },
+
+    methods: {
+        remove: function ({router}) {
+            Firestore.removeDoc({databaseName: 'cars', id: this.$route.params.id})
+            this.$router.push('/')
+        }
     }
 }
 </script>
+
+<style scoped>
+    .card-header-title > a {
+        /* background-color: aliceblue; */
+        padding: 0 24px;
+    }
+</style>

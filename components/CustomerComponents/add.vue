@@ -19,8 +19,6 @@
       </div>
     </div>
 
-    <pre> {{value}} </pre>
-    
     <div class="row"> <button class="button is-info" @click="save">บันทึก</button></div>
 
   </div>

@@ -29,10 +29,23 @@ import {Firestore} from '@/plugins/boydPlugins'
 
 export default {
   
-  async asyncData() {
-    let data = await Firestore.get({databaseName: 'cars'})
+  // async asyncData() {
+  //   let data = await Firestore.get({databaseName: 'cars'})
+  //   return {
+  //     data: data,
+  //     search: ''
+  //   }
+  // },
+
+  data () {
+    Firestore.get({
+      databaseName: 'cars',
+    }).then(data => {
+      this.data = data
+    })
+
     return {
-      data: data,
+      data: [],
       search: ''
     }
   },

@@ -1,8 +1,8 @@
 <template>
     <div>
-        <div class="card" style="margin-bottom: 8px">
+        <div class="card" style="margin-bottom: 8px" v-if="data">
         <div class="card-header">
-            <p class="card-header-title" v-if="data">
+            <p class="card-header-title" >
                 {{data.brand}} {{data.version}}
                 <a @click="remove">ลบ</a>
             </p>
@@ -13,10 +13,12 @@
                 <span class="label-item"> <b>ขนาดเครื่องยนต์ </b> {{data.cc}} </span>
                 <span class="label-item"> <b>สี</b>  {{data.color}}</span>
                 <span class="label-item"> <b>ปีรถ</b>  {{data.year}}</span>
+                <span class="label-item"> <b>พ.ร.บ.</b>  {{data.insuranceUnit}}</span>
+                <span class="label-item"> <b>ประเภทประกัน</b>  {{data.insuranceType}}</span>
             </div>
             
             <div v-if="data">
-                <span class="label-item"> <b>ชื่อ</b>  {{data.fistname}}</span>
+                <span class="label-item"> <b>ชื่อ</b>  {{data.firstname}}</span>
                 <span class="label-item"> <b>นามสกุล</b>  {{data.lastname}}</span>
                 <span class="label-item"> <b>เพศ</b>  {{data.sex}}</span>
                 <span class="label-item"> <b>เลขบัตรประจำตัวประชาชน</b>  {{data.idcard}}</span>
@@ -38,14 +40,18 @@
 import {Firestore} from '@/plugins/boydPlugins'
 
 export default {
-    props: {
-        data: {type: Object, required: true}
-    },
-
-    data: function () {
-        return {
-        }
-    },
+   data () {
+       const key = this.$route.params.id
+       Firestore.getDoc({
+           databaseName: 'cars',
+           docName: key
+       }).then(data => {
+           this.data = data
+       })
+       return {
+           data: null
+       }
+   },
 
     methods: {
         remove: function ({router}) {

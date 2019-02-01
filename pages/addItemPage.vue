@@ -1,7 +1,6 @@
 <template>
   <div>
-    <pre> {{value}} </pre>
-      <vue-multiselect v-model="customerSelected" :options="getCustomerFromFirestore" label="firstname">xxx</vue-multiselect>
+    <vue-multiselect v-model="customerSelected" :options="getCustomerFromFirestore" label="firstname">xxx</vue-multiselect>
     <hr>
     <div class="columns">
       <div class="column class">
@@ -9,6 +8,8 @@
           <car-component @input="(event) => {mergeDataToValue(event)}"/>
           <cleave-component v-model="value.years" :config="{blocks: [4]}" elementName="car-year">ปี (พ.ศ.)</cleave-component>
           <select-component v-model="value.color" :data="Car.color">สีรถ</select-component>
+          <select-component v-model="value.insuranceUnit" :data="insuranceType">พ.ร.บ.</select-component>
+          <select-component v-model="value.insuranceType" :data="insuranceUnit">ประเภทประกัน</select-component>
           <input-component v-model="value.cc" >ขนาดเครื่องยนต์</input-component>
           <!-- <pre> {{value}} </pre> -->
       </div>
@@ -85,6 +86,9 @@ export default {
 
   watch: {
     customerSelected: function (v) {
+      // remove key
+      delete v._key
+      // console.log(valueAfterDeleteKey)
       this.value = {...v}
     }
   },
@@ -99,17 +103,11 @@ export default {
 
   methods: {
     apply: function () {
-      let value = this.value
-      fireDb.collection('cars').add({
-        ...this.value
+      Firestore.add({
+        databaseName: 'cars',
+        value: this.value
       })
-      .then(docRef => {
-        console.log('doc ref', docRef)
-        this.$router.push('/')
-      })
-      .catch(err => {
-        console.log(err)
-      })
+      this.$router.push('/')
     },
 
     mergeDataToValue: function (value) {

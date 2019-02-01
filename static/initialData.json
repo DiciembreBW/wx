@@ -29,5 +29,15 @@
         {"field": "pragun", "desc": "ประกัน"},
         {"field": "pasee", "desc": "ภาษี"},
         {"field": "grommatun", "desc": "กรรมธรรภ์"}
+    ],
+    "insuranceType": [
+        "ประเภท 1",
+        "ประเภท 2 plus",
+        "ประเภท 3 plus",
+        "ประเภท 3"
+    ],
+    "insuranceUnit": [
+        "ประกันชั้น 1",
+        "ประกันอัคคีภัย"
     ]
 }

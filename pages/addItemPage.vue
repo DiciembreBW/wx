@@ -1,5 +1,8 @@
 <template>
   <div>
+    <pre> {{value}} </pre>
+      <vue-multiselect v-model="customerSelected" :options="getCustomerFromFirestore" label="firstname">xxx</vue-multiselect>
+    <hr>
     <div class="columns">
       <div class="column class">
         <h1 class="title is-4">ข้อมูลรถ</h1>
@@ -12,11 +15,23 @@
       
       <div class="column class">
         <h1 class="title is-4">ข้อมูลลูกค้า</h1>
-          <input-component v-model="value.fistname">ชื่อ</input-component>
+        <!-- <pre>{{customerSelected}}</pre> -->
+        <foo-input-component :value="value.firstname">ชิ่อ</foo-input-component>
+        <foo-input-component :value="value.lastname">นามสกุล</foo-input-component>
+        <foo-input-component :value="value.idcard">รหัสบัตรประจำตัวประชาชน</foo-input-component>
+        <foo-input-component :value="value.phone">เบอร์โทรศัพท์</foo-input-component>
+        <foo-input-component :value="value.sex">เพศ</foo-input-component>
+        <foo-input-component :value="value.address">เลขที่</foo-input-component>
+        <foo-input-component :value="value.moo">หมู่</foo-input-component>
+        <foo-input-component :value="value.subdistrict">ตำบล</foo-input-component>
+        <foo-input-component :value="value.district">อำเภอ</foo-input-component>
+        <foo-input-component :value="value.province">จังหวัด</foo-input-component>
+        <foo-input-component :value="value.postcode">รหัสไปรษณีย์</foo-input-component>
+          <!-- <input-component v-model="value.fistname" :v="customerSelected.fistname">ชื่อ</input-component>
           <input-component v-model="value.lastname">นามสกุล</input-component>
           <select-component v-model="value.sex" :data="customer.sex">เพศ</select-component>
           <input-component v-model="value.address">ที่อยู่</input-component>
-          <cleave-component v-model="value.idcard" :config="Cleave.idCardFormat" elementName="id-card">เลขบัตรประจำตัวประชาชน</cleave-component>
+          <cleave-component v-model="value.idcard" :config="Cleave.idCardFormat" elementName="id-card">เลขบัตรประจำตัวประชาชน</cleave-component> -->
           <!-- <pre> {{value.customer}} </pre> -->
       </div>
       
@@ -39,20 +54,21 @@ import InputComponent from '@/components/form/InputComponent'
 import SelectComponent from '@/components/form/SelectComponent'
 import CleaveComponent from '@/components/form/CleaveComponent'
 import CarComponent from '@/components/CarComponent'
+import FooInputComponent from '@/components/form/FooInputComponent'
 
 // data
 import InitialData from '@/static/initialData.json'
 import CarData from '@/static/car-list.json'
 
 //firestore
-import {fireDb} from '@/plugins/Firestore'
+import {Firestore} from '@/plugins/boydPlugins'
 
 export default {
   mounted () {
-    fireDb.collection('cars').get().then(snapshot => {
-      snapshot.forEach(docRef => {
-        this.itemsData.push(docRef.data())
-      })
+    Firestore.get({
+      databaseName: 'customers'
+    }).then(data => {
+      this.getCustomerFromFirestore = data
     })
   },
   
@@ -60,7 +76,16 @@ export default {
     return {
       ...InitialData,
       value: {},
-      itemsData: []
+      itemsData: [],
+
+      getCustomerFromFirestore: [],
+      customerSelected: ''
+    }
+  },
+
+  watch: {
+    customerSelected: function (v) {
+      this.value = {...v}
     }
   },
 
@@ -68,7 +93,8 @@ export default {
     InputComponent,
     SelectComponent,
     CleaveComponent,
-    CarComponent
+    CarComponent,
+    FooInputComponent
   },
 
   methods: {

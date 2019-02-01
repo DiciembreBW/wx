@@ -3,7 +3,7 @@
     <div class="columns">
       <div class="column class">
           <cleave-component v-model="value.idcard" :config="Cleave.idCardFormat" elementName="id-card">เลขบัตรประจำตัวประชาชน</cleave-component>
-          <input-component v-model="value.fistname">ชื่อ</input-component>
+          <input-component v-model="value.firstname">ชื่อ</input-component>
           <input-component v-model="value.lastname">นามสกุล</input-component>
           <select-component v-model="value.sex" :data="customer.sex">เพศ</select-component>
           <phone-component elementName="tel" v-model="value.phone">เบอร์โทรศัพท์</phone-component>

@@ -1,22 +1,11 @@
 <template>
   <div>
-    <vue-multiselect v-model="customerSelected" :options="getCustomerFromFirestore" label="firstname">xxx</vue-multiselect>
+    <vue-multiselect v-model="customerSelected" :options="getCustomerFromFirestore" label="firstname" placeholder="เลือกลูกค้า">xxx</vue-multiselect>
     <hr>
     <div class="columns">
-      <div class="column class">
-        <h1 class="title is-4">ข้อมูลรถ</h1>
-          <car-component @input="(event) => {mergeDataToValue(event)}"/>
-          <cleave-component v-model="value.years" :config="{blocks: [4]}" elementName="car-year">ปี (พ.ศ.)</cleave-component>
-          <select-component v-model="value.color" :data="Car.color">สีรถ</select-component>
-          <select-component v-model="value.insuranceUnit" :data="insuranceType">พ.ร.บ.</select-component>
-          <select-component v-model="value.insuranceType" :data="insuranceUnit">ประเภทประกัน</select-component>
-          <input-component v-model="value.cc" >ขนาดเครื่องยนต์</input-component>
-          <!-- <pre> {{value}} </pre> -->
-      </div>
       
       <div class="column class">
         <h1 class="title is-4">ข้อมูลลูกค้า</h1>
-        <!-- <pre>{{customerSelected}}</pre> -->
         <foo-input-component :value="value.firstname">ชิ่อ</foo-input-component>
         <foo-input-component :value="value.lastname">นามสกุล</foo-input-component>
         <foo-input-component :value="value.idcard">รหัสบัตรประจำตัวประชาชน</foo-input-component>
@@ -28,24 +17,28 @@
         <foo-input-component :value="value.district">อำเภอ</foo-input-component>
         <foo-input-component :value="value.province">จังหวัด</foo-input-component>
         <foo-input-component :value="value.postcode">รหัสไปรษณีย์</foo-input-component>
-          <!-- <input-component v-model="value.fistname" :v="customerSelected.fistname">ชื่อ</input-component>
-          <input-component v-model="value.lastname">นามสกุล</input-component>
-          <select-component v-model="value.sex" :data="customer.sex">เพศ</select-component>
-          <input-component v-model="value.address">ที่อยู่</input-component>
-          <cleave-component v-model="value.idcard" :config="Cleave.idCardFormat" elementName="id-card">เลขบัตรประจำตัวประชาชน</cleave-component> -->
-          <!-- <pre> {{value.customer}} </pre> -->
+      </div>
+
+      <div class="column class">
+        <h1 class="title is-4">ข้อมูลรถ</h1>
+          <car-component @input="(event) => {mergeDataToValue(event)}"/>
+          <cleave-component v-model="value.years" :config="{blocks: [4]}" elementName="car-year">ปี (พ.ศ.)</cleave-component>
+          <select-component v-model="value.color" :data="Car.color">สีรถ</select-component>
+          <select-component v-model="value.insuranceType" :data="insuranceType">พ.ร.บ.</select-component>
+          <select-component v-model="value.insuranceCorp" :data="insuranceCorp">บริษัทประกัน</select-component>
+          <select-component v-model="value.insuranceUnit" :data="insuranceUnit">ประเภทประกัน</select-component>
+          <input-component v-model="value.cc" >ขนาดเครื่องยนต์</input-component>
+          <input-component v-model="value.plate" >ทะเบียนรถ</input-component>
       </div>
       
       <div class="column class">
         <h1 class="title is-4">ข้อมูลเอกสารต่างๆ</h1>
           <cleave-component v-model="value.pragun" :config="Cleave.dateFormat" elementName="x1">วันหมดประกัน (วัน/เดือน/ปี พ.ศ.)</cleave-component>
           <cleave-component v-model="value.pasee" :config="Cleave.dateFormat" elementName="x2">วันหมดภาษี (วัน/เดือน/ปี พ.ศ.)</cleave-component>
-          <cleave-component v-model="value.grommatun" :config="Cleave.dateFormat" elementName="x3">วันหมดกรรมธรรม์(วัน/เดือน/ปี พ.ศ.)</cleave-component>
-          <!-- <pre> {{value.info}} </pre> -->
+          <cleave-component v-model="value.grommatun" :config="Cleave.dateFormat" elementName="x3">วันหมด พ.ร.บ.(วัน/เดือน/ปี พ.ศ.)</cleave-component>
       </div>
     </div>
     <div class="row"> <button class="button is-info" @click="apply">บันทึก</button></div>
-    <!-- <h1 class="title is-2">หน้าแรก</h1> -->
   </div>
 </template>
 

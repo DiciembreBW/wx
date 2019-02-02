@@ -15,6 +15,7 @@
                 <span class="label-item"> <b>ปีรถ</b>  {{data.year}}</span>
                 <span class="label-item"> <b>พ.ร.บ.</b>  {{data.insuranceUnit}}</span>
                 <span class="label-item"> <b>ประเภทประกัน</b>  {{data.insuranceType}}</span>
+                <span class="label-item"> <b>ประเภทประกัน</b>  {{data.insuranceCorp}}</span>
             </div>
             
             <div v-if="data">
@@ -28,7 +29,7 @@
             <div v-if="data">
                 <span class="label-item"> <b>วันหมดประกัน (วัน/เดือน/ปี พ.ศ.)</b>  {{data.pragun}}</span>
                 <span class="label-item"> <b>วันหมดภาษี (วัน/เดือน/ปี พ.ศ.)</b>  {{data.pasee}}</span>
-                <span class="label-item"> <b>วันหมดกรรมธรรม์(วัน/เดือน/ปี พ.ศ.)</b>  {{data.grommatun}}</span>
+                <span class="label-item"> <b>วันหมด พ.ร.บ.(วัน/เดือน/ปี พ.ศ.)</b>  {{data.grommatun}}</span>
             </div>
             </div>
         </div>

@@ -7,14 +7,7 @@
                 <label class="label">ค้นหา</label>
             </div>
             <div class="field-body">
-                <div class="field">
-                <p class="control is-expanded has-icons-left">
-                    <input v-model="value" class="input" type="text" placeholder="ค้นหา">
-                    <span class="icon is-small is-left">
-                    <i class="fas fa-user"></i>
-                    </span>
-                </p>
-                </div>
+
                 <div class="field">
                     <div class="control is-expanded has-icons-left has-icons-right">
                         <div class="select">
@@ -31,6 +24,17 @@
                     <i class="fas fa-check"></i>
                     </span>
                 </div>
+                
+                <div class="field">
+                <p class="control is-expanded has-icons-left">
+                    <input v-model="value" class="input" type="text" placeholder="ค้นหา">
+                    <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                    </span>
+                </p>
+                </div>
+
+                
                 <div class="field">
                     <div class="control">
                         <button class="button" @click="search">ค้นหา</button>

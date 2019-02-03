@@ -3,7 +3,7 @@
 
     <Navigator />
 
-    <item-navigator />
+    <!-- <item-navigator /> -->
 
     <nuxt/>
 

@@ -1,10 +1,10 @@
 <template>
-    <div>
+    <div class="item">
         <div class="card" style="margin-bottom: 8px" v-if="data">
         <div class="card-header">
             <p class="card-header-title" >
                 {{data.brand}} {{data.version}}
-                <a @click="remove">ลบ</a>
+                
             </p>
         </div>
         <div class="card-content">
@@ -16,6 +16,7 @@
                 <span class="label-item"> <b>พ.ร.บ.</b>  {{data.insuranceUnit}}</span>
                 <span class="label-item"> <b>ประเภทประกัน</b>  {{data.insuranceType}}</span>
                 <span class="label-item"> <b>ประเภทประกัน</b>  {{data.insuranceCorp}}</span>
+                <span class="label-item"> <b>ทะเบียนรถ</b>  {{data.plate}}</span>
             </div>
             
             <div v-if="data">
@@ -33,6 +34,22 @@
             </div>
             </div>
         </div>
+        </div>
+
+        <div class="card">
+            <a @click="remove">
+            <span style="font-size: 1em; color: Tomato;">
+                <i class="fas fa-trash-alt"></i>
+            </span>
+            ลบ
+            </a>
+
+            <a @click="remove">
+            <span style="font-size: 1em; color: Tomato;">
+                <i class="fas fa-edit"></i>
+            </span>
+            แก้ไข
+            </a>
         </div>
     </div>
 </template>
@@ -68,4 +85,9 @@ export default {
         /* background-color: aliceblue; */
         padding: 0 24px;
     }
+
+    a {
+        color: tomato;
+    }
+
 </style>

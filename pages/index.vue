@@ -1,77 +1,60 @@
 <template>
-  <div>
-    <div class="row">
-      <search-component v-model="search"/>
-    </div>
-    <div class="row">
-    <div class="item">
-      <div v-for="(item, index) in data" :key="index">
-        <nuxt-link :to="'item/' + item._key">
-          <item-on-index-component :data="item"/>
-        </nuxt-link>
-      </div>
-    </div>
-    </div>
-      <!-- <pre> {{data}} </pre> -->
+  <div id="navigator" class="has-text-centered">
+    <nuxt-link class="navigator-item" to="/item">
+      <span style="font-size: 3em; color: Tomato;">
+        <i class="fas fa-database"></i>
+      </span> <br>
+      ข้อมูล
+    </nuxt-link>
+    <nuxt-link class="navigator-item" to="/">
+      <span style="font-size: 3em; color: Tomato;">
+        <i class="fas fa-plus"></i>
+      </span> <br>
+      เพิ่มข้อมูล
+    </nuxt-link>
+    <nuxt-link class="navigator-item" to="/">
+      <span style="font-size: 3em; color: Tomato;">
+        <i class="fas fa-user-tie"></i>
+      </span> <br>
+      ข้อมูลลูกค้า
+    </nuxt-link>
+    <nuxt-link class="navigator-item" to="/">
+      <span style="font-size: 3em; color: Tomato;">
+        <i class="fas fa-search"></i>
+      </span> <br>
+      ค้นหา
+    </nuxt-link>
+
   </div>
 </template>
 
-<script>
-// import component
-import ItemsComponent from '@/components/ItemsComponent'
-import ItemOnIndexComponent from '@/components/ItemOnIndexComponent'
-import SelectComponent from '@/components/form/SelectComponent'
-import SearchComponent from '@/components/SearchComponent'
-import {fireDb} from '@/plugins/Firestore'
-
-import {Firestore} from '@/plugins/boydPlugins'
-
-
-export default {
-  
-  // async asyncData() {
-  //   let data = await Firestore.get({databaseName: 'cars'})
-  //   return {
-  //     data: data,
-  //     search: ''
-  //   }
-  // },
-
-  data () {
-    Firestore.get({
-      databaseName: 'cars',
-    }).then(data => {
-      this.data = data
-    })
-
-    return {
-      data: [],
-      search: ''
-    }
-  },
-
-  components: {
-    ItemsComponent,
-    ItemOnIndexComponent,
-    SelectComponent,
-    SearchComponent
-  },
-
-  watch: {
-    async search (value) {
-      let callbackData = await Firestore.getWhere(value)
-      this.data = callbackData
-    }
-  }
-  
-}
-</script>
-
 <style scoped>
-.item {
+#navigator {
+  /* background-color: red; */
   display: flex;
+  justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
 }
+
+#navigator > .navigator-item {
+  /* width: 25%; */
+  width: 200px;
+  padding:  100px 0;
+  /* height: 25%; */
+  /* border: 1px solid black; */
+  border-radius: 4px;
+  margin: 4px;
+  /* text-align: center; */
+}
+
+.navigator-item {
+  color: black;
+  font-size: 1.5em;
+}
+.navigator-item:hover {
+  background-color: #E5E5E5;
+  color: tomato;
+}
+
 </style>

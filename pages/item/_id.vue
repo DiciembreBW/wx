@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <items-component :data="item"></items-component>
     </div>
 </template>

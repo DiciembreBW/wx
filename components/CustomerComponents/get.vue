@@ -2,7 +2,7 @@
     <div>
         <ol>
             <li v-for="(item, index) in items" :key="index">
-                {{item.fistname}}
+                {{item.firstname}}
                 {{item.lastname}}
                 <a @click="foo(item)">get item</a>
             </li>

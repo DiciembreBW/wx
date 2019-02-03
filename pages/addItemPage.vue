@@ -36,6 +36,7 @@
           <cleave-component v-model="value.pragun" :config="Cleave.dateFormat" elementName="x1">วันหมดประกัน (วัน/เดือน/ปี พ.ศ.)</cleave-component>
           <cleave-component v-model="value.pasee" :config="Cleave.dateFormat" elementName="x2">วันหมดภาษี (วัน/เดือน/ปี พ.ศ.)</cleave-component>
           <cleave-component v-model="value.grommatun" :config="Cleave.dateFormat" elementName="x3">วันหมด พ.ร.บ.(วัน/เดือน/ปี พ.ศ.)</cleave-component>
+          <input-component v-model="value.plate" >ทุนประกัน</input-component>
       </div>
     </div>
     <div class="row"> <button class="button is-info" @click="apply">บันทึก</button></div>
@@ -53,6 +54,8 @@ import FooInputComponent from '@/components/form/FooInputComponent'
 // data
 import InitialData from '@/static/initialData.json'
 import CarData from '@/static/car-list.json'
+import dataOld from '@/static/dataOld.json'
+import _ from 'lodash'
 
 //firestore
 import {Firestore} from '@/plugins/boydPlugins'
@@ -67,6 +70,12 @@ export default {
   },
   
   data: function () {
+    // _.map(dataOld.customer, item => {
+    //   Firestore.add({
+    //     databaseName: 'customers',
+    //     value: item
+    //   })
+    // })
     return {
       ...InitialData,
       value: {},

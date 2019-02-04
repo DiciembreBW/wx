@@ -1,25 +1,34 @@
 import Vue from 'vue'
+import {
+  Firestore
+} from '@/plugins/boydPlugins'
 
 let myPlugins = {
-    install (Vue, options) {
-        Vue.mixin ({
-            data () {
-                return {
-                    
-            }}, // data
+  install(Vue, options) {
+    Vue.mixin({
+      data() {
+        return {
+          VALUES: {
+            set:{},
+            get: []
+          }
+        }
+      }, // data
 
-            mounted() {
-            }, // mounted
+      mounted() {}, // mounted
 
-            methods: {
-                
-            }, // methods
+      methods: {
+        ...Firestore,
+        test: function () {
+          console.log('save from plugins')
+        }
+      }, // methods
 
-            computed: {
-                
-            }, // compputed
-        })
-    }
+      computed: {
+
+      }, // compputed
+    })
+  }
 }
 
 Vue.use(myPlugins)

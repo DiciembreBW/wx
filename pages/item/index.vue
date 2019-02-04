@@ -14,16 +14,26 @@
 import ItemOnIndexComponent from '@/components/ItemOnIndexComponent'
 import {Firestore} from '@/plugins/boydPlugins'
 
+import {mapMutations} from 'vuex'
+
 export default {
     async asyncData() {
-        let data = await Firestore.get({ databaseName: 'cars' })
+        let data = await Firestore.get('cars')
+
+        console.log(data)
 
         return {
             data: data
         }
     },
 
-    components: { ItemOnIndexComponent }
+    components: { ItemOnIndexComponent },
+
+    methods: {
+      ...mapMutations({
+        inc: 'increment'
+      })
+    }
 }
 </script>
 

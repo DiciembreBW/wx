@@ -3,7 +3,7 @@ import {fireDb} from '@/plugins/Firestore'
 import {etc} from '@/plugins/Etc'
 
 export let Firestore = {
-    get: function ({databaseName}) {
+    get: function (databaseName) {
         return new Promise((resolve, reject) => {
             try {
                 let ref = fireDb.collection(databaseName).get()
@@ -34,23 +34,36 @@ export let Firestore = {
     },
 
     // remove
-    removeDoc: function  ({databaseName, id}) {
+    removeDoc: function  (databaseName, _key) {
         let ref = fireDb.collection(databaseName)
-            .doc(id)
+            .doc(_key)
             .delete()
             .then(()=> {
-                console.log(id, 'is deleted')
+                console.log(_key, 'is deleted')
             })
 
     },
 
     // push data
-    add: function({databaseName, value}) {
+    add: function(databaseName, value) {
         fireDb.collection(databaseName).add({
             ...value
         })
         // fireDb.collection(databaseName).add({
         //     ...value
         // })
-    }
+    },
+
+    onSnapshot: function (REF) {
+        return new Promise((resolve, reject) => {
+            try {
+                let ref = REF.onSnapshot()
+                console.log(ref)
+                // resolve(etc.querydatafromfirestore(ref))
+            }
+            catch (err) {
+                console.log(err)
+            }
+        })
+    },
 }

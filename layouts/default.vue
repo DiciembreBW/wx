@@ -5,7 +5,9 @@
 
     <!-- <item-navigator /> -->
 
-    <nuxt/>
+    <section class="section">
+      <nuxt/>
+    </section>
 
     <Footer />
 

@@ -31,12 +31,12 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="buttons">
-              <a class="button is-primary">
-                <strong>Sign up</strong>
-              </a>
-              <a class="button is-light">
-                Log in
-              </a>
+              <nuxt-link to="color" class="button is-light">
+                สี
+              </nuxt-link>
+              <nuxt-link to="prb" class="button is-light">
+                พ.ร.บ.
+              </nuxt-link>
             </div>
           </div>
         </div>

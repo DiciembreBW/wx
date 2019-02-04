@@ -1,4 +1,13 @@
 {
+    "data": {
+        "color": {
+            "name": "color",
+            "desc": "สีรถ",
+            "select": [
+                {"name": "red", "desc": "แดง"}
+            ]
+        }
+    },
     "customer": {
         "sex": ["ชาย", "หญิง"]
     },

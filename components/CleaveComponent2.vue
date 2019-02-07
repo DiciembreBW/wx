@@ -16,7 +16,7 @@
         <div v-else class="control has-icons-left has-icons-right">
         <input
             type="text"
-            @keyup="handle($event)"
+            @keyup="handle"
             :class="Cleave.name"
             :placeholder="Cleave.desc"
             :disabled="Cleave.disable"
@@ -59,11 +59,8 @@ export default {
     },
 
     methods: {
-        handle: function (event) {
-            this.$emit('input', {
-                ...this.Cleave,
-                value: event.target.value
-            })
+        handle: function ($event) {
+            this.$emit('input', $event.target.value)
         }
     },
 

@@ -170,6 +170,15 @@ class testFirestore {
         })
     }
 
+    getDocumentByName = (docName) => {
+        return new Promise((resolve, reject) => {
+            this.REF.doc(docName).get().then(doc => {
+                // console.log(doc)
+                resolve(doc.data())
+            })
+        })
+    }
+
 }
 
 export default testFirestore

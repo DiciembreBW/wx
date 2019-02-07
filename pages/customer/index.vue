@@ -1,6 +1,7 @@
 <template>
   <div>
     <!-- {{data}} -->
+    <nuxt-link to="customer/add">เพิ่มข้อมูล</nuxt-link>
     <table class="table is-fullwidth">
       <thead>
           <tr>
@@ -10,7 +11,7 @@
       </thead>
       <tbody>
         <tr v-for="(item, index) in data" :key="index">
-          <td> <nuxt-link :to="'customer/'+item._key"> {{item.customer.firstname}} {{item.customer.lastname}}</nuxt-link> </td>
+          <td> <nuxt-link :to="'test/'+item._key"> {{item.customer.firstname}} {{item.customer.lastname}}</nuxt-link> </td>
           <td> {{item.customer.phone}}  </td>
           <td @click="remove(item._key)"> <span> <i class="fas fa-trash"></i> </span>  </td>
         </tr>

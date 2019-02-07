@@ -45,7 +45,7 @@
           <!-- <car-component @input="(event) => {mergeDataToValue(event)}"/> -->
           <cleave-component v-model="value.years" :config="{blocks: [4]}" elementName="car-year">ปี (พ.ศ.)</cleave-component>
           <select-component v-model="value.Color" :data="colors">สีรถ</select-component>
-          <select-component v-model="value.insuranceType" :data="prbs">พ.ร.บ.</select-component>
+          <select-component v-model="value.insuranceType" :data="corps">พ.ร.บ.</select-component>
 
           <!-- prb-->
           <div class="field">

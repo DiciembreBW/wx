@@ -33,7 +33,10 @@
       <nuxt-link to="prb" class="button is-light">
         พ.ร.บ.
       </nuxt-link>
-      <nuxt-link to="corp" class="button is-light">
+       <nuxt-link to="customer" class="button is-light">
+        ข้อมูลลูกค้า
+      </nuxt-link>
+       <nuxt-link to="corp" class="button is-light">
         บริษัทประกันภัย
       </nuxt-link>
     </div>

@@ -1,18 +1,14 @@
 <template>
     <div>
-        <h1 class="title">1</h1>
+        <h1 class="title">ข้อมูลการลูกค้า</h1>
         <div class="field" v-for="(item, index) in fields" :key="index" >
             <cleave-component v-model="value[item.name]" :Cleave="item" />
         </div>
-ิ
-<br>
-<br>
-<br>
-<br>
-        <input type="text" id="district">
-<input type="text" id="amphoe">
-<input type="text" id="province">
-<input type="text" id="zipcode">
+
+        <div class="control">
+          <button class="button" @click="next({customer: value})">ถัดไป</button>
+        </div>
+
     </div>
 </template>
 
@@ -20,19 +16,9 @@
 import CleaveComponent from '@/components/CleaveComponent2'
 import $ from 'jquery'
 
-
 export default {
-    mounted () {
-        if(process.BROWSER_BUILD) {
-            console.log($(this))
-        }
-        
-        $.Thailand({
-    $district: $('#district'), // input ของตำบล
-    $amphoe: $('#amphoe'), // input ของอำเภอ
-    $province: $('#province'), // input ของจังหวัด
-    $zipcode: $('#zipcode'), // input ของรหัสไปรษณีย์
-})
+    props: {
+        next: {}
     },
 
     components: {

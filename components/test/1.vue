@@ -4,6 +4,15 @@
         <div class="field" v-for="(item, index) in fields" :key="index" >
             <cleave-component v-model="value[item.name]" :Cleave="item" />
         </div>
+ิ
+<br>
+<br>
+<br>
+<br>
+        <input type="text" id="district">
+<input type="text" id="amphoe">
+<input type="text" id="province">
+<input type="text" id="zipcode">
     </div>
 </template>
 
@@ -17,7 +26,13 @@ export default {
         if(process.BROWSER_BUILD) {
             console.log($(this))
         }
-        $('.title').html('pass')
+        
+        $.Thailand({
+    $district: $('#district'), // input ของตำบล
+    $amphoe: $('#amphoe'), // input ของอำเภอ
+    $province: $('#province'), // input ของจังหวัด
+    $zipcode: $('#zipcode'), // input ของรหัสไปรษณีย์
+})
     },
 
     components: {

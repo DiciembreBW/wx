@@ -16,12 +16,17 @@ module.exports = {
 
     script: [
       {src: 'https://use.fontawesome.com/releases/v5.3.1/js/all.js'},
-      {src: 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'}
+      {src: 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'},
+      {src: 'https://earthchie.github.io/jquery.Thailand.js/jquery.Thailand.js/dependencies/JQL.min.js'},
+      {src: 'https://earthchie.github.io/jquery.Thailand.js/jquery.Thailand.js/dependencies/typeahead.bundle.js'},
+
+      {src: 'https://earthchie.github.io/jquery.Thailand.js/jquery.Thailand.js/dist/jquery.Thailand.min.js'}
     ],
     
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Mitr' }
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Mitr' },
+      { rel: 'stylesheet', href: 'https://earthchie.github.io/jquery.Thailand.js/jquery.Thailand.js/dist/jquery.Thailand.min.css' }
     ]
   },
 

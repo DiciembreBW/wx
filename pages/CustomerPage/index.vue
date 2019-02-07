@@ -3,6 +3,7 @@
     <h1 class="title is-4" @click="getComponent">ข้อมูลลูกค้า</h1>
     <a class="subtitle" @click="addComponent">เพิ่ม</a>
     <hr>
+
     <keep-alive>
       <component :is="componentId" @handleComponent="handleMethod" :data="dataFromComponent"></component>
     </keep-alive>
@@ -16,13 +17,17 @@ import get from '@/components/CustomerComponents/get'
 import add from '@/components/CustomerComponents/add'
 
 // plugin
-import {Firestore} from '@/plugins/boydPlugins'
+import testFirestore, {Firestore} from '@/plugins/boydPlugins'
 
+let customer = new testFirestore('customers')
 export default {
   
   data: function () {
+    
+    customer.onSnapshot().then(data => this.dataFromComponent = data)
     return {
 
+      data: [],
       componentId: get,
       dataFromComponent: ''
     }

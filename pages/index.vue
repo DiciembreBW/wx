@@ -12,7 +12,7 @@
       </span> <br>
       เพิ่มข้อมูล
     </nuxt-link>
-    <nuxt-link class="navigator-item" to="/color">
+    <nuxt-link class="navigator-item" to="/CustomerPage">
       <span style="font-size: 3em; color: Tomato;">
         <i class="fas fa-user-tie"></i>
       </span> <br>
@@ -20,10 +20,23 @@
     </nuxt-link>
     <nuxt-link class="navigator-item" to="/car">
       <span style="font-size: 3em; color: Tomato;">
-        <i class="fas fa-search"></i>
+        <i class="fas fa-car"></i>
       </span> <br>
       ค้นหา
     </nuxt-link>
+
+    <hr>
+    <div class="items">
+      <nuxt-link to="color" class="button is-light">
+        สี
+      </nuxt-link>
+      <nuxt-link to="prb" class="button is-light">
+        พ.ร.บ.
+      </nuxt-link>
+      <nuxt-link to="corp" class="button is-light">
+        บริษัทประกันภัย
+      </nuxt-link>
+    </div>
 
   </div>
 </template>

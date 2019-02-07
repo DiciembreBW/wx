@@ -30,7 +30,7 @@
 
         <div class="navbar-end">
           <div class="navbar-item">
-            <div class="buttons">
+            <!-- <div class="buttons">
               <nuxt-link to="color" class="button is-light">
                 สี
               </nuxt-link>
@@ -40,7 +40,7 @@
               <nuxt-link to="corp" class="button is-light">
                 บริษัทประกันภัย
               </nuxt-link>
-             </div>
+             </div> -->
           </div>
         </div>
       </div>

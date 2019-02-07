@@ -1,10 +1,25 @@
 <template>
   <div class="container">
-    <div class="fields">
-      <div class="control">
-        <input type="text" @keyup.enter="search"  class="input" placeholder="ค้นหา">
-      </div>
-    </div>
+    <div class="field has-addons has-addons-centered">
+  <p class="control">
+    <span class="select">
+      <select v-model="value.type">
+        <option value="firstname">ชื่อ</option>
+        <option value="phone">เบอร์โทร</option>
+        <option value="plate">ทะเบียนรถ</option>
+        <option value="brand">ยี่ห้อรถ</option>
+      </select>
+    </span>
+  </p>
+  <p class="control">
+    <input v-model="value.name" class="input" type="text" placeholder="คำค้นหา">
+  </p>
+  <p class="control">
+    <a class="button is-primary" @click="search">
+      ค้นหา
+    </a>
+  </p>
+</div>
     <hr>
     <div class="item">
       <table class="table is-fullwidth">
@@ -23,7 +38,7 @@
             <td>{{item.brand}} {{item.version}} </td>
             <td>{{item.firstname}} {{item.lastname}} </td>
             <td>{{item.plate}}</td>
-            <td>{{item.phone}}</td>
+            <!-- <td>{{item.phone}}</td> -->
             <td @click="remove(item._key)">
               <span>
                 <i class="fas fa-trash-alt"></i>
@@ -40,6 +55,7 @@
 import ItemOnIndexComponent from '@/components/ItemOnIndexComponent'
 import testFirestore, {Firestore} from '@/plugins/boydPlugins'
 
+import _ from 'lodash'
 
 let CARS = new testFirestore('cars')
 
@@ -47,7 +63,8 @@ export default {
     data() {
         CARS.onSnapshot().then(data => this.cars = data)
         return {
-          cars: []
+          cars: [],
+          value: {}
         }
     },
 
@@ -58,10 +75,10 @@ export default {
         CARS.removeDocument(_key).then(data => this.cars = data)
       },
 
-      search: function ($event) {
-          let value = $event.target.value
-
-          console.log(value)
+      search: function () {
+          CARS.getWhere(this.value.type, this.value.name).then(data => {
+            this.cars = data
+          })
       }
     }
 }

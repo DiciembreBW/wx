@@ -15,7 +15,8 @@ module.exports = {
     ],
 
     script: [
-      {src: 'https://use.fontawesome.com/releases/v5.3.1/js/all.js'}
+      {src: 'https://use.fontawesome.com/releases/v5.3.1/js/all.js'},
+      {src: 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'}
     ],
     
     link: [
@@ -83,7 +84,9 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
-      
+      config.externals = {
+        jquery: 'jQuery'
+      }
     }
   }
 }

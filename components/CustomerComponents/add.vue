@@ -1,5 +1,6 @@
 <template>
   <div>
+    <pre> {{value}} </pre>
     <div class="columns">
       <div class="column class">
           <cleave-component v-model="value.idcard" :config="Cleave.idCardFormat" elementName="id-card">เลขบัตรประจำตัวประชาชน</cleave-component>

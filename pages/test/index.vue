@@ -1,44 +1,62 @@
 <template>
-    <div>
-        <input type="text"  @keyup.enter="add">
-        <!-- <pre> {{data}} </pre> -->
-        <ol>
-            <li v-for="(item, index) in data" :key="index">
-                <a @click="remove(item._key)"> {{item.text}} </a>
-            </li>
-        </ol>
-    </div>
+  <div>
+      <div class="field">
+
+      </div>
+      <keep-alive>
+            <component :is="collect_a[0]"></component>
+      </keep-alive>
+      <br>
+      <br>
+      <br>
+      <br>
+      <div class="field is-grouped">
+        <div class="control is-large">
+          <button class="button"  :disabled="collect_b == 0" @click="back">back</button>
+        </div>
+        <div class="control">
+          <button class="button" :disabled="collect_a.length == 1" @click="next">next</button>
+        </div>
+      </div>
+
+  </div>
 </template>
 
 <script>
-import {fireDb} from '@/plugins/Firestore'
-import  testFirestore from '@/plugins/boydPlugins'
+import a from '@/components/test/1'
+import b from '@/components/test/2'
+import c from '@/components/test/3'
+import d from '@/components/test/4'
+
 import _ from 'lodash'
 
-let test = new testFirestore('test')
 export default {
-    data() {
-        test.onSnapshot().then(data => {
-            this.data =data
-        })
-      return {
-        data:  []
-      }
-    },
-    methods: {
-        add: function($event) {
-            fireDb.collection('test').add({
-                text: $event.target.value
-            })
-        },
-
-        remove: function(_key) {
-            test.removeDocument(_key).then(data => {
-                this.data = data
-            })
-        }
+  data() {
+    let arr = [a, b, c, d]
+    // this.x = _.remove(this.x, e => {
+    //   return e[0]
+    // })
+    return {
+      collect_a: [a,b,c,d],
+      collect_b: []
     }
+  },
+  methods: {
+    back: function () {
+      let dataFromShift = this.collect_b.shift()
+      this.collect_a.unshift(dataFromShift)
+    },
+    
+    next: function () {
+      // remove first array
+      let dataFromShift = this.collect_a.shift()
+
+      // asign collect b
+      this.collect_b.unshift(dataFromShift)
+    }
+  }
 }
+
 </script>
 
 <style>

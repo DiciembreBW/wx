@@ -160,6 +160,16 @@ class testFirestore {
       })
     }
 
+     getWhere = (type, name) => {
+        return new Promise((resolve, reject) => {
+            let ref
+            console.log(type, name)
+            if (name == '') ref = this.REF.get()
+            else ref = this.REF.where(type, '==', name).get()
+            resolve(etc.querydatafromfirestore(ref))
+        })
+    }
+
 }
 
 export default testFirestore

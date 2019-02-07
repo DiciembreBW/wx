@@ -1,13 +1,11 @@
 import Vue from 'vue'
-import {
-  Firestore
-} from '@/plugins/boydPlugins'
 
 let myPlugins = {
   install(Vue, options) {
     Vue.mixin({
       data() {
         return {
+          data: [],
           VALUES: {
             set:{},
             get: []
@@ -18,9 +16,15 @@ let myPlugins = {
       mounted() {}, // mounted
 
       methods: {
-        ...Firestore,
         test: function () {
-          console.log('save from plugins')
+          console.log(this.ref)
+        },
+        save: function () {
+          this.ref.addDocument(this.VALUES.set)
+        },
+
+        remove: function(_key) {
+          this.ref.removeDocument(_key)
         }
       }, // methods
 

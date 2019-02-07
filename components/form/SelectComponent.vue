@@ -4,9 +4,9 @@
             <slot>label</slot>
         </label>
         <div class="control">
-            <div class="select" >
+            <div class="select is-fullwidth" >
                 <select v-model="inputValue">
-                    <option v-for="(item, index) in data" :key="index" :value="item"> {{item}} </option>
+                    <option v-for="(item, index) in data" :key="index" :value="item.value"> {{item.value}} </option>
                 </select>
             </div>
         </div>

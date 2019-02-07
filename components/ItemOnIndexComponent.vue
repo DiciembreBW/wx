@@ -1,6 +1,7 @@
 <template>
     <div class="card">
-        <div class="card-header">
+        {{data.brand}} 
+        <!-- <div class="card-header">
             <p class="card-header-title is-size-5" v-if="data.brand"> {{data.brand}} {{data.version}} </p>
         </div>
 
@@ -21,7 +22,7 @@
                     <span class="label-item"> <b>วันหมด พ.ร.บ. </b>  {{data.grommatun}}</span>
                 </div>
             </div>
-        </div>
+        </div> -->
         
     </div>
 </template>
@@ -32,6 +33,7 @@ export default {
     },
 
     data () {
+        console.log(this.data)
         return {}
     }
 }

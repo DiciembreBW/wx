@@ -1,32 +1,52 @@
 <template>
   <div id="navigator" class="has-text-centered">
-    <nuxt-link class="navigator-item" to="/item">
+    <a class="navigator-item" @click="handle">
       <span style="font-size: 3em; color: Tomato;">
         <i class="fas fa-database"></i>
       </span> <br>
       ข้อมูล
-    </nuxt-link>
-    <nuxt-link class="navigator-item" to="/addItemPage">
+    </a>
+    <!-- <a class="navigator-item" >
       <span style="font-size: 3em; color: Tomato;">
         <i class="fas fa-plus"></i>
       </span> <br>
       เพิ่มข้อมูล
-    </nuxt-link>
-    <nuxt-link class="navigator-item" to="/color">
+    </a>
+    <a class="navigator-item" >
       <span style="font-size: 3em; color: Tomato;">
         <i class="fas fa-user-tie"></i>
       </span> <br>
       ข้อมูลลูกค้า
-    </nuxt-link>
-    <nuxt-link class="navigator-item" to="/car">
+    </a>
+    <a class="navigator-item" >
       <span style="font-size: 3em; color: Tomato;">
         <i class="fas fa-search"></i>
       </span> <br>
       ค้นหา
-    </nuxt-link>
-
-  </div>
+    </a> -->
+</div>
 </template>
+
+<script>
+import ThumbnailComponent from '@/components/ThumbnailComponent'
+import pg from '@/plugins/plugins'
+
+export default {
+  props: {
+  },
+
+  data () {
+    return {}
+  },
+
+  methods: {
+    handle: function () {
+      this.$emit('changeComponent', ThumbnailComponent)
+    }
+  }
+}
+</script>
+
 
 <style scoped>
 #navigator {

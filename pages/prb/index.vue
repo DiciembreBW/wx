@@ -20,14 +20,13 @@
             <tr> <td>ลำดับ</td> <td>รายการ</td>  <td>ลบ</td> </tr>
           </thead>
           <tbody>
-            <tr v-for="(item, index) in VALUES.get" :key="index">
+            <tr v-for="(item, index) in data" :key="index">
               <td>{{item._key}}</td>
               <td>{{item.value}}</td>
               <td> <button @click="remove(item._key)" class="button is-dangle">ลบ</button> </td>
             </tr>
           </tbody>
         </table>
-        
       </div>
     </div>
   </div>
@@ -35,34 +34,29 @@
 
 <script>
 import CleaveComponent from '@/components/CleaveComponent'
-import {Firestore} from '@/plugins/boydPlugins'
+import testFirestore, {Firestore} from '@/plugins/boydPlugins'
 
 import pg from '@/plugins/plugins'
 
-export default {
-  // mixins: [pg],
+let PRB = new testFirestore('prbs')
 
+export default {
   data () {
-    Firestore.get('prbs').then(data => this.VALUES.get= data)
     return {
       fields: [
         {name: 'name', desc: 'ชื่อ พรบ'}
       ],
+      data: PRB.data
     }
-  },
-
-  computed: {
   },
 
   methods: {
     save: function () {
-      Firestore.add('prbs', this.VALUES.set)
-      this.$router.push('/')
+      PRB.addDocument(this.VALUES.set)
     },
 
     remove: function(_key) {
-      Firestore.removeDoc('prbs', _key)
-      this.$router.push('/')
+      PRB.removeDocument(_key)
     }
   },
 

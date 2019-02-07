@@ -13,14 +13,14 @@
 export default {
     props: {
         // 1
-        data: {type: String},
+        // data: {type: String},
         v: {type: String}
     },
 
     data: function () {
         return {
             // 2
-            inputValue: this.data
+            inputValue: this.v
         }
     },
 

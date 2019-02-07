@@ -21,12 +21,43 @@
 
       <div class="column class">
         <h1 class="title is-4">ข้อมูลรถ</h1>
-          <car-component @input="(event) => {mergeDataToValue(event)}"/>
+          <!-- brand -->
+          <div class="field">
+            <label class="label is-size-7">ยี่ห้อรถ</label>
+            <div class="select  is-fullwidth">
+              <select v-model="value.brand">
+                <option v-for="(item, index) in cars" :key="index" :value="item._key">{{item._key}}</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- version -->
+          <div class="field">
+            <label class="label is-size-7">รุ่นรถ</label>
+            <div class="select  is-fullwidth">
+              <select v-model="value.version">
+                <option v-for="(item, index) in version" :key="index" :value="item">{{item}}</option>
+              </select>
+            </div>
+          </div>
+
+
+          <!-- <car-component @input="(event) => {mergeDataToValue(event)}"/> -->
           <cleave-component v-model="value.years" :config="{blocks: [4]}" elementName="car-year">ปี (พ.ศ.)</cleave-component>
-          <select-component v-model="value.color" :data="Car.color">สีรถ</select-component>
-          <select-component v-model="value.insuranceType" :data="insuranceType">พ.ร.บ.</select-component>
-          <select-component v-model="value.insuranceCorp" :data="insuranceCorp">บริษัทประกัน</select-component>
-          <select-component v-model="value.insuranceUnit" :data="insuranceUnit">ประเภทประกัน</select-component>
+          <select-component v-model="value.Color" :data="colors">สีรถ</select-component>
+          <select-component v-model="value.insuranceType" :data="prbs">พ.ร.บ.</select-component>
+
+          <!-- prb-->
+          <div class="field">
+            <label class="label is-size-7">ประเภทประกัน</label>
+            <div class="select  is-fullwidth">
+              <select v-model="value.insuranceUnit">
+                <option v-for="(item, index) in insuranceUnit" :key="index" :value="item">{{item}}</option>
+              </select>
+            </div>
+          </div>
+
+          <select-component v-model="value.insuranceCorp" :data="corps">บริษัทประกัน</select-component>
           <input-component v-model="value.cc" >ขนาดเครื่องยนต์</input-component>
           <input-component v-model="value.plate" >ทะเบียนรถ</input-component>
       </div>
@@ -58,39 +89,35 @@ import dataOld from '@/static/dataOld.json'
 import _ from 'lodash'
 
 //firestore
-import {Firestore} from '@/plugins/boydPlugins'
+import testFirestore, {Firestore} from '@/plugins/boydPlugins'
+
+let CAR = new testFirestore('car')
+let CARS = new testFirestore('cars')
+let CUSTOMER = new testFirestore('customers')
+let COLOR = new testFirestore('colors')
+let PRB = new testFirestore('prbs')
+let CORPS = new testFirestore('corps')
 
 export default {
-  mounted () {
-    Firestore.get({
-      databaseName: 'customers'
-    }).then(data => {
-      this.getCustomerFromFirestore = data
-    })
-  },
-  
+
   data: function () {
-    // _.map(dataOld.customer, item => {
-    //   Firestore.add({
-    //     databaseName: 'customers',
-    //     value: item
-    //   })
-    // })
     return {
       ...InitialData,
       value: {},
       itemsData: [],
 
-      getCustomerFromFirestore: [],
-      customerSelected: ''
+      getCustomerFromFirestore: CUSTOMER.data,
+      customerSelected: '',
+      cars: CAR.data,
+      colors: COLOR.data,
+      prbs: PRB.data,
+      corps: CORPS.data
     }
   },
 
   watch: {
     customerSelected: function (v) {
-      // remove key
       delete v._key
-      // console.log(valueAfterDeleteKey)
       this.value = {...v}
     }
   },
@@ -105,10 +132,11 @@ export default {
 
   methods: {
     apply: function () {
-      Firestore.add({
-        databaseName: 'cars',
-        value: this.value
-      })
+      // Firestore.add({
+      //   databaseName: 'cars',
+      //   value: this.value
+      // })
+      CARS.addDocument(this.value)
       this.$router.push('/')
     },
 
@@ -120,6 +148,16 @@ export default {
   computed: {
     itemsComp: function () {
 
+    },
+
+    version: function () {
+      let data = []
+      _.map(this.cars, item => {
+        if (item._key == this.value.brand) {
+          data = item.options
+        }
+      })
+      return data
     }
   }
 }

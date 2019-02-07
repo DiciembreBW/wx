@@ -1,38 +1,68 @@
 <template>
   <div class="container">
-    <div class="item">
-      <div v-for="(item, index) in data" :key="index">
-        <nuxt-link :to="'item/' + item._key" ii="asadad">
-          <item-on-index-component :data="item" />
-        </nuxt-link>
+    <div class="fields">
+      <div class="control">
+        <input type="text" @keyup.enter="search"  class="input" placeholder="ค้นหา">
       </div>
+    </div>
+    <hr>
+    <div class="item">
+      <table class="table is-fullwidth">
+        <thead>
+          <tr>
+            <!-- <td>ระหัส</td> -->
+            <td>ยี่ห้อรถ</td>
+            <td>ชื่อ-นามสกุล</td>
+            <td>ทะเบียนรถ</td>
+            <td>เบอร์โทรศัพท์</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(item, index) in cars" :key="index">
+            <!-- <td>{{item._key}} </td> -->
+            <td>{{item.brand}} {{item.version}} </td>
+            <td>{{item.firstname}} {{item.lastname}} </td>
+            <td>{{item.plate}}</td>
+            <td>{{item.phone}}</td>
+            <td @click="remove(item._key)">
+              <span>
+                <i class="fas fa-trash-alt"></i>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>
 
 <script>
 import ItemOnIndexComponent from '@/components/ItemOnIndexComponent'
-import {Firestore} from '@/plugins/boydPlugins'
+import testFirestore, {Firestore} from '@/plugins/boydPlugins'
 
-import {mapMutations} from 'vuex'
+
+let CARS = new testFirestore('cars')
 
 export default {
-    async asyncData() {
-        let data = await Firestore.get('cars')
-
-        console.log(data)
-
+    data() {
+        CARS.onSnapshot().then(data => this.cars = data)
         return {
-            data: data
+          cars: []
         }
     },
 
     components: { ItemOnIndexComponent },
 
     methods: {
-      ...mapMutations({
-        inc: 'increment'
-      })
+      remove: function (_key) {
+        CARS.removeDocument(_key).then(data => this.cars = data)
+      },
+
+      search: function ($event) {
+          let value = $event.target.value
+
+          console.log(value)
+      }
     }
 }
 </script>

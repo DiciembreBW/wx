@@ -67,3 +67,99 @@ export let Firestore = {
         })
     },
 }
+
+class testFirestore {
+    constructor (refName) {
+        // if (refName) this.REF = fireDb.collection(refName) 
+        // else console.log('no ')
+        try {
+            this.REF = fireDb.collection(refName) 
+            this.getCollection()
+        }catch(err) {
+            console.log(err)
+        }
+        // return fireDb
+    }
+
+    getCollection = () => {
+        let data = []
+        let counter = 0
+        let length = 0
+        
+        this.REF.get().then(querySnapshot => {
+            // asign length
+            length = querySnapshot.docs.length
+            querySnapshot.forEach(doc => {
+                data.push({
+                    _key: doc.id,
+                    ...doc.data()
+                })
+                // counter
+                counter ++
+            })
+        })
+        
+        // if length equal counter return data
+        if (counter == length) {
+            this.data = data
+        }
+    }
+
+    removeDocument = (_key) => {
+        return new Promise((resolve, reject) => {
+            try {
+                this.REF.doc(_key).delete()
+                this.onSnapshot().then(data => resolve(data))
+            } catch (error) {
+                console.log(error)      
+            }
+        })
+    }
+
+    addDocument = (data) => {
+        try {
+            let a = this.REF.add(data)
+            this.getCollection()
+        } catch (error) {
+           console.log(error)
+        }
+    }
+
+    addDocumentByName = (data) => {
+        try {
+            this.REF.doc(data.value.value)
+                .set(data)
+        } catch (error) {
+           console.log(error)
+        }
+    }
+
+    onSnapshot = async (_key) => {
+      return new Promise((resolve, reject) => {
+        let data = []
+        this.REF.onSnapshot(query => {
+          query.docChanges().forEach(change => {
+            // if added
+            if (change.type == 'added') {
+              data.push({
+                _key: change.doc.id,
+                ...change.doc.data()
+              })
+
+              resolve(data)
+            }
+            // if removed
+            if (change.type === 'removed') {
+              data = _.remove(data, event => {
+                return event._key !== _key
+              })
+              resolve(data)
+            }
+          })
+        })
+      })
+    }
+
+}
+
+export default testFirestore

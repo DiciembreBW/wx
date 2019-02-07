@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1 class="title">สีรถ</h1>
+    <h1 class="title">บริษัทประกันภัย</h1>
     <div class="columns">
       <div class="column is-one-third">
 
@@ -27,6 +27,7 @@
             </tr>
           </tbody>
         </table>
+        
       </div>
     </div>
   </div>
@@ -35,40 +36,34 @@
 <script>
 import CleaveComponent from '@/components/CleaveComponent'
 import testFirestore, {Firestore} from '@/plugins/boydPlugins'
-
 import pg from '@/plugins/plugins'
 
-let COLOR = new testFirestore('colors')
+let CORPS = new testFirestore('corps')
 
 export default {
-  // mixins: [pg],
 
-  data() {
-      console.log()
-      COLOR.onSnapshot().then(data => this.data = data)
-      return {
-        fields: [{
-          name: 'name',
-          desc: 'สีรถ'
-        }],
-        data: []
-      }
-    },
-
-    methods: {
-      save: function () {
-        COLOR.addDocument(this.VALUES.set)
-        this.VALUES.set = ''
-      },
-
-      remove: function (_key) {
-        COLOR.removeDocument(_key).then(data => this.data = data)
-      }
-    },
-
-    components: {
-      CleaveComponent
+  data () {
+    return {
+      fields: [
+        {name: 'name', desc: 'บริษัทประกันภัย'}
+      ],
+      data: CORPS.data
     }
+  },
+
+  methods: {
+    save: function () {
+      CORPS.addDocument(this.VALUES.set)
+    },
+
+    remove: function(_key) {
+      CORPS.removeDocument(_key)
+    }
+  },
+
+  components: {
+    CleaveComponent
+  }
 
 }
 </script>

@@ -44,7 +44,7 @@
 
           <!-- <car-component @input="(event) => {mergeDataToValue(event)}"/> -->
           <cleave-component v-model="value.years" :config="{blocks: [4]}" elementName="car-year">ปี (พ.ศ.)</cleave-component>
-          <select-component v-model="value.Color" :data="colors">สีรถ</select-component>
+          <select-component v-model="value.color" :data="colors">สีรถ</select-component>
           <select-component v-model="value.insuranceType" :data="corps">พ.ร.บ.</select-component>
 
           <!-- prb-->
@@ -67,7 +67,7 @@
           <cleave-component v-model="value.pragun" :config="Cleave.dateFormat" elementName="x1">วันหมดประกัน (วัน/เดือน/ปี พ.ศ.)</cleave-component>
           <cleave-component v-model="value.pasee" :config="Cleave.dateFormat" elementName="x2">วันหมดภาษี (วัน/เดือน/ปี พ.ศ.)</cleave-component>
           <cleave-component v-model="value.grommatun" :config="Cleave.dateFormat" elementName="x3">วันหมด พ.ร.บ.(วัน/เดือน/ปี พ.ศ.)</cleave-component>
-          <input-component v-model="value.plate" >ทุนประกัน</input-component>
+          <input-component v-model="value.tun" >ทุนประกัน</input-component>
       </div>
     </div>
     <div class="row"> <button class="button is-info" @click="apply">บันทึก</button></div>
@@ -103,7 +103,32 @@ export default {
   data: function () {
     return {
       ...InitialData,
-      value: {},
+      value: {
+        firstname: '-',
+        lastname: '-',
+        idcard: '-',
+        phone: '-',
+        sex: '-',
+        address: '-',
+        moo: '-',
+        subdistrict: '-',
+        district: '-',
+        province: '-',
+        postcode: '-',
+        brand: '-',
+        version: '-',
+        year: '-',
+        color: '-',
+        insuranceType: '-',
+        insuranceUnit: '-',
+        insuranceCorp: '-',
+        cc: '-',
+        plate: '-',
+        pragun: '-',
+        pasee: '-',
+        grommatun: '-',
+        tun: '-'
+      },
       itemsData: [],
 
       getCustomerFromFirestore: CUSTOMER.data,

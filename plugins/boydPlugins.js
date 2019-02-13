@@ -179,6 +179,13 @@ class testFirestore {
         })
     }
 
+    updateDocumentByName = (docName, data) => {
+        return new Promise((resolve, reject) => {
+            this.REF.doc(docName).set({
+                ...data
+            }, {merge: true})
+        })
+    }
 }
 
 export default testFirestore

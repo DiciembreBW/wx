@@ -21,29 +21,21 @@
   </p>
 </div>
     <hr>
+
     <div class="item">
-      <table class="table is-fullwidth">
+      <table class="table is-fullwidth is-hover is-narrow is-hoverable is-bordered">
         <thead>
-          <tr>
-            <!-- <td>ระหัส</td> -->
+          <tr class="has-background-grey-lighter">
             <td>ยี่ห้อรถ</td>
             <td>ชื่อ-นามสกุล</td>
             <td>ทะเบียนรถ</td>
-            <!-- <td>เบอร์โทรศัพท์</td> -->
           </tr>
         </thead>
         <tbody>
           <tr v-for="(item, index) in cars" :key="index">
-            <!-- <td>{{item._key}} </td> -->
-            <td>{{item.brand}} {{item.version}} </td>
-            <td>{{item.firstname}} {{item.lastname}} </td>
+            <td>{{item.brand}} </td>
+            <td><nuxt-link :to="'item/'+item._key">{{item.firstname}} {{item.lastname}}</nuxt-link> </td>
             <td>{{item.plate}}</td>
-            <!-- <td>{{item.phone}}</td> -->
-            <td @click="remove(item._key)">
-              <span>
-                <i class="fas fa-trash-alt"></i>
-              </span>
-            </td>
           </tr>
         </tbody>
       </table>

@@ -6,7 +6,7 @@
       </span> <br>
       ข้อมูล
     </nuxt-link>
-    <nuxt-link class="navigator-item" to="/addItemPage">
+    <nuxt-link class="navigator-item" to="/Work">
       <span style="font-size: 3em; color: Tomato;">
         <i class="fas fa-plus"></i>
       </span> <br>

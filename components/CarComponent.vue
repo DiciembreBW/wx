@@ -1,75 +1,103 @@
 <template>
+  <div class="field">
+    <h1 class="title">Car Component</h1>
     <div class="field">
-        <!-- <select-component></select-component> -->
-        <div class="field">
-            <label class="label is-size-7">ชื่อยี่ห้อรถ</label>
-            <div class="control">
-                <div class="select">
-                    <select v-model="selected">
-                        <option selected disabled>---------------------------</option>
-                        <option v-for="(item, index) in CarData" :key="index" :value="item.brand"> {{item.brand}} </option>
-                    </select>
-                </div>
-            </div>
+      <label class="label">ยี่ห้อ</label>
+      <div class="control">
+        <div class="select is-fullwidth">
+          <select v-model="brand">
+            <option v-for="(item, index) in car" :key="index" :value="item._key"> {{item._key}} </option>
+          </select>
         </div>
-
-        <div class="field">
-            <label class="label is-size-7">รุ่นรถ</label>
-            <div class="control">
-                <div class="select">
-                    <select v-model="versionSelected">
-                        <option selected disabled>---------------------------</option>
-                        <option v-for="(item, index) in versionData" :key="index" :value="item"> {{item}} </option>
-                    </select>
-                </div>
-            </div>
-        </div>
-
-
+      </div>
     </div>
+    <div class="field">
+        <label class="label">รุ่นรถ</label>
+        <div class="control">
+            <div class="select is-fullwidth">
+                <select v-model="version">
+                    <option v-for="(item, index) in filterVersion" :key="index" :value="item">{{item}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="field">
+        <label class="label">สี</label>
+        <div class="control">
+            <input type="text" class="input">
+        </div>
+    </div>
+
+
+    <div class="field">
+        <label class="label">ปี (พ.ศ.)</label>
+        <div class="control">
+            <input type="text" class="input">
+        </div>
+    </div>
+
+
+    <div class="field">
+        <label class="label">ขนาดเครื่องยนต์</label>
+        <div class="control">
+            <input type="text" class="input">
+        </div>
+    </div>
+
+    <div class="field is-grouped is-grouped-centered">
+        <div class="control">
+            <button v-if="apply" class="button" @click="apply({brand: brand, version: version})">apply</button>
+        </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import SelectComponent from '@/components/form/SelectComponent'
-
+import testFirestore from '@/plugins/boydPlugins'
 import _ from 'lodash'
 
-import CarData from '@/static/car-list.json'
+let car = new testFirestore('car')
 
 export default {
-    props: {
-        data: {type: String}
-    },
+  props: {
+      apply: {type: Function}
+  },
 
-    data: function () {
-        return {
-            CarData: CarData,
-            selected: null,
-            versionSelected: null,
-            versionData: []
-        }
-    },
-
-    components: {
-        SelectComponent
-    },
-
-    watch: {
-        selected (event) {
-            _.map(CarData, (e) => {
-                if (e.brand == event) {
-                    this.versionData = e.models
-                }
-            })
-        },
-
-        versionSelected (event) {
-            this.$emit('input', {
-                brand: this.selected,
-                version: event
-            })
-            // console.log(e)
-        }
+  data () {
+    car.onSnapshot().then(e => this.car = e)
+    return {
+      car: [],
+        brand: '',
+        version: '',
+        filterVersion: []
     }
-}   
+  },
+
+  computed: {
+      filterCarVersion: function () {
+          let data = []
+          _.filter(this.car, item => {
+              if (this.brand == item._key) {
+                  data = item.options
+              }
+          })
+          
+          return data
+      }
+  },
+
+  watch: {
+    brand: function (selected) {
+        this.filterVersion = []
+        this.version = ''
+      _.filter(this.car, item => {
+        if (this.brand == item._key) {
+          this.filterVersion = item.options
+        }
+      })
+
+    }
+  }
+
+}
 </script>

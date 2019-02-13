@@ -16,6 +16,7 @@
     "cleave.js": "^1.4.7",
     "cross-env": "^5.2.0",
     "firebase": "^5.5.8",
+    "fuzzy": "^0.1.3",
     "jquery": "^3.3.1",
     "lodash": "^4.17.11",
     "nuxt": "^2.0.0",

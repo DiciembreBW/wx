@@ -24,7 +24,7 @@
     <div class="field">
         <label class="label">สี</label>
         <div class="control">
-            <input type="text" class="input">
+            <input type="text" class="input" v-model="value.color">
         </div>
     </div>
 
@@ -32,7 +32,7 @@
     <div class="field">
         <label class="label">ปี (พ.ศ.)</label>
         <div class="control">
-            <input type="text" class="input">
+            <input type="text" class="input" v-model="value.year">
         </div>
     </div>
 
@@ -40,13 +40,20 @@
     <div class="field">
         <label class="label">ขนาดเครื่องยนต์</label>
         <div class="control">
-            <input type="text" class="input">
+            <input type="text" class="input" v-model="value.cc">
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label">ทะเบียนรถ</label>
+        <div class="control">
+            <input type="text" class="input" v-model="value.plate">
         </div>
     </div>
 
     <div class="field is-grouped is-grouped-centered">
         <div class="control">
-            <button v-if="apply" class="button" @click="apply({brand: brand, version: version})">apply</button>
+            <button v-if="apply" class="button" @click="apply({...value, brand: brand, version: version})">apply</button>
         </div>
     </div>
   </div>
@@ -62,10 +69,11 @@ export default {
   props: {
       apply: {type: Function}
   },
-
+  
   data () {
     car.onSnapshot().then(e => this.car = e)
     return {
+      value: {},
       car: [],
         brand: '',
         version: '',

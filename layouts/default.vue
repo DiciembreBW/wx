@@ -1,43 +1,24 @@
 <template>
-  <div>
-
-    <Navigator />
-
-    <!-- <item-navigator /> -->
+  <div class="container">
+    <div class="nav"></div>
+    <div class="nav2">
+      <a href="">หน้าแรก</a>
+      <a href="">เพิ่มข้อมูล</a>
+      <a href="">ลูกค้า</a>
+      <a href="">จัดการข้อมูล</a>
+      <a href="">อู่รถ</a>
+    </div>
+    <!-- <Navigator />
 
     <section class="section">
       <nuxt/>
     </section>
 
-    <Footer />
-
-    <!-- <section class="hero is-medium is-light is-bold">
-      <div class="hero-body">
-        <div class="container">
-          <h1 class="title">
-            Primary bold title
-          </h1>
-          <h2 class="subtitle">
-            Primary bold subtitle
-          </h2>
-        </div>
-      </div>
-  </section>
-    <hr>
-    <section class="section">
-      <div class="columns">
-
-        <div class="column is-one-quarter">
-        </div>
-
-        <div class="column">
-
-        </div>
-      </div>
-    </section> -->
+    <Footer /> -->
 
   </div>
 </template>
+
 
 <script>
   import ItemNavigator from '@/components/html/ItemNavigator.vue'

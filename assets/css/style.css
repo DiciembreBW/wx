@@ -5,3 +5,21 @@ html * {
     /* font-weight: bold; */
     padding-right: 13px;
 }
+/* .nav {
+    height: 96px;
+    background-color: red;
+}
+.nav2 {
+    display: flex;
+    flex-direction: row;
+}
+.nav2 > a {
+    padding: 8px 24px;
+}
+.nav > a:after{
+    width: 1px;
+    background-color: black;
+}
+.nav2 > a:hover {
+    border-bottom: 2px solid black;
+} */

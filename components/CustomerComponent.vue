@@ -1,10 +1,10 @@
 <template>
   <div>
-    <h1 class="title"> Customer </h1>
+    <!-- <h1 class="title"> Customer </h1> -->
     <div class="field">
       <label class="label">รหัสบัตรประจำตัวประชาชน</label>
       <div class="control">
-        <input type="text" class="input idcard">
+        <input type="text" class="input idcard" v-model="value.idcard">
         <!-- <input type="text" class="input idcard" v-model="value.idcard"> -->
       </div>
     </div>
@@ -59,34 +59,34 @@
     <div class="field">
         <label class="label">ตำบล</label>
         <div class="control">
-            <input type="text" class="input" id="district">
+            <input type="text" class="input" id="district" v-model="value.district">
         </div>
     </div>
     <div class="field">
         <label class="label">อำเภอ</label>
         <div class="control">
-            <input type="text" class="input" id="amphoe">
+            <input type="text" class="input" id="amphoe" v-model="value.amphoe">
         </div>
     </div>
     <div class="field">
         <label class="label">จังหวัด</label>
         <div class="control">
-            <input type="text" class="input" id="province">
+            <input type="text" class="input" id="province" v-model="value.province">
         </div>
     </div>
     <div class="field">
         <label class="label">รหัสไปรษณีย์</label>
         <div class="control">
-            <input type="text" class="input" id="zipcode">
+            <input type="text" class="input" id="zipcode" v-model="value.zipcode">
         </div>
     </div>
     <div class="field is-grouped is-grouped-centered">
         <div class="control">
-            <button v-if="cancel" class="button">button 1</button>
+            <button v-if="edit" class="button" @click="edit(value)">แก้ไข</button>
+            <button v-if="cancel" class="button is-danger">ลบ</button>
             <button v-if="apply" class="button" @click="apply(value)">ตกลง</button>
         </div>
     </div>
-
 
   </div>
 </template>
@@ -101,8 +101,10 @@ import $ from 'jquery'
 
 export default {
     props: {
+        edit: {type: Function},
         cancel: {type: Function},
-        apply: {type: Function}
+        apply: {type: Function},
+        value: {}
     },
     mounted() {
         // start Cleave
@@ -141,7 +143,7 @@ export default {
 
       data() {
         return {
-            value: {}
+            // value: {}
         }
       },
 

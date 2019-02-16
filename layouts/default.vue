@@ -1,13 +1,27 @@
 <template>
   <div class="container">
-    <div class="nav"></div>
-    <div class="nav2">
-      <a href="">หน้าแรก</a>
-      <a href="">เพิ่มข้อมูล</a>
-      <a href="">ลูกค้า</a>
-      <a href="">จัดการข้อมูล</a>
-      <a href="">อู่รถ</a>
-    </div>
+
+    <section class="section">
+      <div class="columns is-centered">
+        <div class="column is-half">
+
+          <navigator/>
+
+          <nuxt/>
+
+          <!-- <div class="row">
+            <div class="field">
+              <div class="control">
+                <input type="text" class="input is-radius-large search" placeholder="ค้นหา">
+              </div>
+            </div>
+          </div> -->
+
+         
+        </div>
+      </div>
+    </section>
+
     <!-- <Navigator />
 
     <section class="section">
@@ -21,14 +35,14 @@
 
 
 <script>
-  import ItemNavigator from '@/components/html/ItemNavigator.vue'
-  import Footer from '@/components/html/Footer.vue'
+  // import ItemNavigator from '@/components/html/ItemNavigator.vue'
+  // import Footer from '@/components/html/Footer.vue'
   import Navigator from '@/components/html/Navigator.vue'
 
   export default {
     components: {
-      ItemNavigator,
-      Footer,
+      // ItemNavigator,
+      // Footer,
       Navigator
     }
   }

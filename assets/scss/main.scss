@@ -1,3 +1,71 @@
-.nav2 {
-    background-color: red;
+@import "~bulma/sass/utilities/_all.sass";
+@import "~bulma/sass/utilities/initial-variables.sass";
+@import "~bulma/bulma.sass";
+
+$main_color: rgb(255, 99, 71);
+
+.is-fullhd-only {
+  width: 740px;
+}
+
+.nav {
+    height: 96px;
+    text-align: center;
+}
+.row {
+  padding: 12px 0;
+}
+.navigator {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    // background-color: $main_color;
+    border-bottom: 2px solid $primary;
+    font-size: 1.5em;
+    a {
+        padding: 8px 12px;
+        color: $primary;
+        font-weight: bold;
+        &:first-child {
+        }
+        &:hover {
+            // outline-offset: -3px;
+            // border-bottom: 2px solid $primary;
+            color: $primary;
+            box-sizing: border-box;
+            box-shadow: inset 0px -3px 0px 0px $primary;
+
+            // background-color: rgba($color: #ee5135, $alpha: 1)
+            // background-color: $light;
+
+        }
+    }
+}
+
+#left {
+    .search {
+        border-radius: 24px;
+    }
+}
+.table {
+  thead {
+    color: #ffffff;
+    background-color: $primary;
+    border-radius: 8px;
+
+    tr {
+      td {
+        color: #ffffff;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      &:hover {
+        box-sizing: border-box;
+        box-shadow: inset 0px -1px 0px 0px $primary;
+      }
+    }
+  }
 }

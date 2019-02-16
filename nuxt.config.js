@@ -42,7 +42,7 @@ module.exports = {
     // impprt vue-multiselect style
     { src: 'vue-multiselect/dist/vue-multiselect.min.css', lang: 'css' },
     { src: '@/assets/css/style.css', lang: 'css' },
-    '@/assets/scss/main.scss',
+    { src: '@/assets/scss/main.scss', lang: 'scss'},
   ],
 
   /*

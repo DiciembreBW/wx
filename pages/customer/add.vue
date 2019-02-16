@@ -1,51 +1,28 @@
 <template>
   <div>
-      <div class="field">
-        <!-- <pre> {{$store.state.value}} </pre> -->
-      </div>
-      <keep-alive>
-            <component :is="collect_a[0]" :next="next" :back="back" ></component>
-      </keep-alive>
+      <customer-component :value="value" :apply="apply"/>   
   </div>
 </template>
 
 <script>
-import a from '@/components/test/1'
-import b from '@/components/test/2'
-import c from '@/components/test/3'
-import d from '@/components/test/4'
+import CustomerComponent from '@/components/CustomerComponent'
+import testFirestore from '@/plugins/boydPlugins'
 
-import _ from 'lodash'
-
+const customer = new testFirestore('ctm')
 export default {
+  components:{
+      CustomerComponent
+  },
   data() {
-    let arr = [a, b, c, d]
-    // this.x = _.remove(this.x, e => {
-    //   return e[0]
-    // })
     return {
-      collect_a: [a,b,c,d],
-      collect_b: []
+      value: {}
     }
   },
   methods: {
-    back: function () {
-      let dataFromShift = this.collect_b.shift()
-      this.collect_a.unshift(dataFromShift)
-    },
-    
-    next: function (value) {
-      // remove first array
-      let dataFromShift = this.collect_a.shift()
-
-      // asign collect b
-      this.collect_b.unshift(dataFromShift)
-
-      //
-      // console.log(value)
-      // this.$store.commit('assignValue', value)
-      // console.log('pass')
-      this.$store.commit('assignValue', value)
+    apply: function (callback) {
+      // console.log(callback)
+      customer.addDocument(callback)
+      this.$router.push('/customer')
     }
   }
 }

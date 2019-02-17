@@ -4,7 +4,7 @@
       <tbody>
         <tr v-for="(item, index) in items" :key="index">
           <td> <nuxt-link :to="'/car/'+item._key">{{item.name}} {{item.version.length}}</nuxt-link> </td>
-          <td> <a @click="remove(item._key)">ลบ</a> </td>
+          <td> <a @click="remove(item._key)"> <span class="icon"> <i class="fas fa-trash"></i> </span> </a> </td>
         </tr>
 
         <tr>

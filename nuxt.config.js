@@ -56,7 +56,10 @@ module.exports = {
     // เพิ่ม plugin ในไฟล์ config
     // '~/plugins/med.js',
 
-    '@/plugins/VueMultiselectPlugin.js'
+    '@/plugins/VueMultiselectPlugin.js',
+
+    //import vee-validate
+    '@/plugins/vee-validate.js'
   ],
 
   /*

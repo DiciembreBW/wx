@@ -5,7 +5,13 @@
             <tbody>
                 <tr v-for="(item, index) in items.version" :key="index">
                     <td>{{item}}</td>
-                    <td> <a @click="remove(index)">-</a> </td>
+                    <td>
+                        <a @click="remove(index)">
+                            <span class="icon">
+                                <i class="fas fa-trash-alt"></i>
+                            </span>
+                        </a>
+                    </td>
                 </tr>
                 <tr>
                     <td> <input type="text" class="input" v-model="version"> </td>

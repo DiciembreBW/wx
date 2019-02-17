@@ -2,12 +2,34 @@
   <div>
 		<!-- <customer-component :apply="apply" /> -->
 		<!-- <car-component :apply="apply" /> -->
-    <keep-alive>
+    <!-- <keep-alive>
 			<component :is="collect_a[0]" :apply="apply"></component>
-	</keep-alive>
-	<pre>
-		{{value}}
-	</pre>
+	</keep-alive> -->
+	<!-- <input type="text"  name="email" v-validate="'required|email'"> <span> {{errors.first('email')}} </span>
+	<input type="password" name="password" v-validate="'required|min:6'"> <span>{{errors.first('password')}}</span> -->
+	<no-ssr>
+		<div class="field">
+			<label class="label">name</label>
+			<p class="control has-icons-left">
+			<input type="text" v-validate="'required|email'" name="name" class="input is-large">
+			<span class="icon is-left is-small">
+				<i class="fas fa-user"></i>
+			</span>
+			</p>
+			<p> <span>{{errors.first('name')}}</span> </p>
+		</div>
+
+		<div class="field">
+			<label class="label">password</label>
+			<p class="control has-icons-left">
+				<input type="password" v-validate="'required|min:8'" name="password" class="input is-large">
+				<span class="icon is-left">
+					<i class="fas fa-key"></i>
+				</span>
+			</p>
+			<p> {{errors.first('password')}} </p>
+		</div>
+	</no-ssr>
   </div>
 </template>
 

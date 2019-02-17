@@ -1,7 +1,6 @@
 <template>
   <div class="row">
-    <h1 class="title"> customer </h1>
-
+    
     <div class="row">
       <nuxt-link to="customer/add">เพิ่ม</nuxt-link>
     </div>

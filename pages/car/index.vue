@@ -1,105 +1,57 @@
 <template>
-  <div class="container">
-    <h1 class="title">รถ</h1>
-    <div class="columns">
-      <div class="column is-one-third">
-        <div class="field" v-for="(item, index) in fields" :key="index">
-          <cleave-component v-model="value.value" :Cleave="item" />
-        </div>
-        <div class="field">
-          <button class="button" @click="addBrand">เพิ่ม</button>
-        </div>
-         <hr>
-        <div v-if="selected.value">
-            <span @click="removeBrand(selected.value.value)"> ลบยี่ห้อ </span> {{selected.value.value}}
-        </div>
-      </div>
-      <div class="column">
+  <div>
+    <table class="table">
+      <tbody>
+        <tr v-for="(item, index) in items" :key="index">
+          <td> <nuxt-link :to="'/car/'+item._key">{{item.name}} {{item.version.length}}</nuxt-link> </td>
+          <td> <a @click="remove(item._key)">ลบ</a> </td>
+        </tr>
 
-        เลือกยี่ห้อ <vue-multiselect v-model="selected" :options="data" label="_key"/>
-        <br>
-        <br>
-       <table class="table is-fullwidth">
-          <thead>
-            <tr>
-              <td>รายการ</td>
-              <td>ลบ</td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="(item, index) in selected.options" :key="index">
-              <td>{{item}}</td>
-              <td> <a @click="removeOption(index)"> - </a> </td>
-            </tr>
-            <tr>
-              <td> <input v-if="toggle" type="text" @keyup.enter="addOption"></td>
-              <td @click="toggle = !toggle">toggle</td>
-            </tr>
-          </tbody>
-        </table>
+        <tr>
+          <td> <input type="text" class="input" v-model="brand"> </td>
+          <td> <button class="button" @click="add">เพิ่ม</button> </td>
+        </tr>
 
-        <div class="field" style="margin-top: 13px;">
-          <button class="button is-fullwidth" @click="save">บับทึก</button>
-        </div>
-        
-      </div>
-    </div>
+      </tbody>
+    </table>
   </div>
 </template>
 
 <script>
-import CleaveComponent from '@/components/CleaveComponent'
-import testFirestore, {Firestore} from '@/plugins/boydPlugins'
+import testFirestore from '@/plugins/boydPlugins'
 
-import pg from '@/plugins/plugins'
-
-let CAR = new testFirestore('car')
-
+let car = new testFirestore('cr')
 export default {
-  // mixins: [pg],
-
   data () {
-    Firestore.get('colors').then(data => this.VALUES.get= data)
+    car.onSnapshot().then(data => {
+      this.items = data
+    })
     return {
-      fields: [
-        {name: 'name', desc: 'เพิ่มยี่ห้อรถ'}
-      ],
-      data: CAR.data,
-      selected: {},
-      value: {
-        options: []
-      },
-      toggle: false
+      items: car.data,
+      brand: ''
     }
   },
+  
 
   methods: {
-    save: function () {
-      CAR.addDocumentByName(this.selected)
+    add: async function () {
+        car.addDocument({
+          name: this.brand,
+          version: []
+        })
+
+      this.items = await car.onSnapshot()    
+      this.brand = ''
     },
 
-    removeBrand: function(_key) {
-      CAR.removeDocument(_key)
-      this.$router.push('/')
-    },
-
-    addBrand: function() {
-      CAR.addDocumentByName(this.value)
-    },
-
-    addOption: function($event) {
-      let value = $event.target.value
-      if (value) this.selected.options.push(value)
-      $event.target.value = ''
-    },
-
-    removeOption: function (index) {
-      this.selected.options.splice(index, 1)
+    remove: async function (key) {
+      // this.items.splice(index, 1)
+      car.removeDocument(key)
+      this.items = await car.onSnapshot()    
     }
   },
 
   components: {
-    CleaveComponent
   }
 
 }

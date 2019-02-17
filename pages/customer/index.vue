@@ -2,7 +2,7 @@
   <div class="row">
     
     <div class="row">
-      <nuxt-link to="customer/add">เพิ่ม</nuxt-link>
+      <nuxt-link to="/customer/add">เพิ่ม</nuxt-link>
     </div>
 
     <div class="row">

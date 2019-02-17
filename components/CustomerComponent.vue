@@ -83,7 +83,7 @@
     <div class="field is-grouped is-grouped-centered">
         <div class="control">
             <button v-if="edit" class="button" @click="edit(value)">แก้ไข</button>
-            <button v-if="cancel" class="button is-danger">ลบ</button>
+            <button v-if="cancel" class="button is-danger" @click="cancel">ลบ</button>
             <button v-if="apply" class="button" @click="apply(value)">ตกลง</button>
         </div>
     </div>

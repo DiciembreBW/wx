@@ -23,9 +23,11 @@ export default {
             customer.updateDocumentByName(this.$route.params.id, callback)
             this.$router.push('/customer')
         },
-      remove: function(key) {
+      remove: function() {
+        //   remove document
           customer.removeDocument(this.$route.params.id)
-        // console.log(key)
+
+        //   redirect
           this.$router.push('/customer')
       }  
     },

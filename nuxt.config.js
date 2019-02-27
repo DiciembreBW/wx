@@ -1,9 +1,8 @@
 const pkg = require('./package')
 
 module.exports = {
-  mode: 'universal',
-
-  /*
+  mode: 'spa',
+ /*
   ** Headers of the page
   */
   head: {
@@ -59,7 +58,8 @@ module.exports = {
     '@/plugins/VueMultiselectPlugin.js',
 
     //import vee-validate
-    '@/plugins/vee-validate.js'
+    '@/plugins/vee-validate.js',
+
   ],
 
   /*
@@ -71,12 +71,40 @@ module.exports = {
     // Doc:https://github.com/nuxt-community/modules/tree/master/packages/bulma
     '@nuxtjs/bulma',
 
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+
+
+    '@nuxtjs/auth',
+
+    '@nuxtjs/pwa'
   ],
+
+  router: {
+    middleware: ['auth']
+  },
+ 
+  auth: {
+    redirect: {
+      // login: '/'
+      // logout: '/login'
+    },
+    strategies: {
+      google: {
+        client_id: '399309068670-o6aq97mdhsd9ld53vq0tus577ehcnfes.apps.googleusercontent.com',
+        user: false,
+        // **for dev
+
+        // **for production
+        // redirect_uri: 'https://insure-muk.firebaseapp.com/callback'
+        // redirect_uri: 'http://127.0.0.1:3000/callback'
+      }
+    }
+  },
   /*
   ** Axios module configuration
   */
   axios: {
+    // baseURL: 'http://localhost:3000/api/v1'
     // See https://github.com/nuxt-community/axios-module#options
   },
 

@@ -2,44 +2,84 @@
 @import "~bulma/sass/utilities/initial-variables.sass";
 @import "~bulma/bulma.sass";
 
-$main_color: rgb(255, 99, 71);
+$main_color: #e36b00;
+$basic_text: #ffffff;
+$basic_text_dark: #b95903;
+$wrap: 740px;
 
+html{
+  a {
+    color: $basic_text;
+    &:hover {
+      color: $basic_text;
+    }
+  }
+}
 .is-fullhd-only {
   width: 740px;
 }
 
-.nav {
-    height: 96px;
-    text-align: center;
-}
-.row {
-  padding: 12px 0;
-}
+// .nav {
+//     height: 96px;
+//     text-align: center;
+// }
+
 .navigator {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    // background-color: $main_color;
-    border-bottom: 2px solid $primary;
-    font-size: 1.5em;
-    a {
-        padding: 8px 12px;
-        color: $primary;
-        font-weight: bold;
-        &:first-child {
-        }
-        &:hover {
-            // outline-offset: -3px;
-            // border-bottom: 2px solid $primary;
-            color: $primary;
-            box-sizing: border-box;
-            box-shadow: inset 0px -3px 0px 0px $primary;
+    width: 100%;
+    background-color: $main_color;
+    
+    padding: 48px 8px 12px 8px;
 
-            // background-color: rgba($color: #ee5135, $alpha: 1)
-            // background-color: $light;
 
+    .navigator-wrap {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      // set width
+      width: $wrap;
+      // center 
+      margin: 0 auto;
+
+      .navigator-wrap-right {
+        display: flex;
+        flex-direction: row;
+        li {
+
+          a {
+            padding: 8px 12px;
+            background-color: red;
+          }
         }
+      }
+
+      // a {
+      //   background-color: $basic_text_dark;
+      //   padding: 12px 24px;
+      // }
     }
+    // justify-content: center;
+    // background-color: $main_color
+  
+    // border-bottom: 2px solid $primary;
+    // font-size: 1.5em;
+    // a {
+    //     padding: 8px 12px;
+    //     color: $basic_text;
+    //     font-weight: bold;
+    //     &:first-child {
+    //     }
+    //     &:hover {
+    //         // outline-offset: -3px;
+    //         // border-bottom: 2px solid $primary;
+    //         color: $basic_text;
+    //         box-sizing: border-box;
+    //         box-shadow: inset 0px -3px 0px 0px $basic_text_dark;
+
+    //         // background-color: rgba($color: #ee5135, $alpha: 1)
+    //         // background-color: $light;
+
+    //     }
+    // }
 }
 
 #left {

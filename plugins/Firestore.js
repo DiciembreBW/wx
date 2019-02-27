@@ -1,5 +1,6 @@
 import firebase from 'firebase/app'
 import 'firebase/firestore'
+import 'firebase/auth'
 
 if (!firebase.apps.length) {
 
@@ -30,5 +31,6 @@ if (!firebase.apps.length) {
 firebase.firestore().settings({timestampsInSnapshots: true})
 
 const fireDb = firebase.firestore()
+export const auth = firebase.auth()
 
 export {fireDb}

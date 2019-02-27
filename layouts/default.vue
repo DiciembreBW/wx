@@ -1,11 +1,11 @@
 <template>
   <div class="container">
 
+    <navigator/>
     <section class="section">
       <div class="columns is-centered">
         <div class="column is-half">
 
-          <navigator/>
 
           <nuxt/>
 

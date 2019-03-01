@@ -1,9 +1,9 @@
 <template>
 <div>
   <!-- index -->
-  <div class="row">
+  <!-- <div class="row">
     <input type="text" v-model="text" class="input" @keyup="handle" placeholder="ค้นหา">
-  </div>
+  </div> -->
   <item-on-index-component :data="item" />
 </div>
  

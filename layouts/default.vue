@@ -1,49 +1,40 @@
 <template>
-  <div class="container">
-
+  <div>
     <navigator/>
-    <section class="section">
-      <div class="columns is-centered">
-        <div class="column is-half">
 
-
-          <nuxt/>
-
-          <!-- <div class="row">
-            <div class="field">
-              <div class="control">
-                <input type="text" class="input is-radius-large search" placeholder="ค้นหา">
-              </div>
-            </div>
-          </div> -->
-
-         
-        </div>
+    <!-- main -->
+    <div class="columns">
+      <!-- Left Side -->
+      <div class="column is-one-quarter" id="a-side">
+        <a-side  v-if="$auth.loggedIn" />
       </div>
-    </section>
-
-    <!-- <Navigator />
-
-    <section class="section">
-      <nuxt/>
-    </section>
-
-    <Footer /> -->
-
+      <!-- Right Side -->
+      <div class="column">
+        <!-- <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti assumenda magnam, exercitationem cum perspiciatis a molestias nemo vitae ipsa. Maiores illum quaerat voluptatem, laboriosam distinctio animi mollitia itaque sunt illo? </p> -->
+        <nuxt/>
+      </div>
+    </div>
+    <!-- end main -->
+    <!-- <Footer /> -->
   </div>
 </template>
 
+<style lang="scss" scoped>
+$color_b: hsl(30, 30, 30);
+#a-side {
+  background-color: $color_b;
+}
+</style>
+
 
 <script>
-  // import ItemNavigator from '@/components/html/ItemNavigator.vue'
-  // import Footer from '@/components/html/Footer.vue'
   import Navigator from '@/components/html/Navigator.vue'
+  import ASide from './aside.vue'
 
   export default {
     components: {
-      // ItemNavigator,
-      // Footer,
-      Navigator
+      Navigator,
+      ASide
     }
   }
 </script>

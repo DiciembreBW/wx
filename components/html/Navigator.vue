@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar" role="navigation" aria-label="main navigation">
+  <nav class="navbar" role="navigation" aria-label="main navigation" id="navigator-wrap">
     <div class="navbar-brand">
       <a class="navbar-item" href="https://bulma.io">
         <!-- <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28"> -->
@@ -14,7 +14,7 @@
     </div>
 
     <div id="navbarBasicExample" class="navbar-menu" :class="toggleMenu ? 'is-active' : ''">
-      <div class="navbar-start">
+      <div class="navbar-start"  @click="toggle">
         <nuxt-link to="/" class="navbar-item">หน้าแรก</nuxt-link>
         <nuxt-link to="/work" class="navbar-item">เพิ่ม</nuxt-link>
         <nuxt-link to="/customer" class="navbar-item">ลูกค้า</nuxt-link>
@@ -58,6 +58,36 @@
   </nav>
 
 </template>
+
+<style lang="scss" scoped>
+$dark: rgba(0, 0, 0, 0.5);
+$color_a: #C3AD85;
+#navigator-wrap {
+  background-color: $color_a;
+  box-shadow: 0 1px 5px 1px $dark;
+  .navbar-link:not(.is-arrowless)::after  {
+    border: none;
+  }
+  a { 
+    color: white;
+    
+    &:hover {
+      // background-color: 
+      background: none;
+    }
+  }
+
+
+  .burger {
+    color: rgba(255, 255, 255, 0.5);
+    span {
+      width: 32px;
+      height: 2px;
+    }
+  }
+}
+</style>
+
 
 <script>
 export default {

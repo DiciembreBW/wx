@@ -1,39 +1,11 @@
 <template>
-    <aside class="menu section">
-    <p class="menu-label">
-        ข้อมูลทั่วไป
-    </p>
-    <ul class="menu-list">
-        <li><a> <span class="icon"> <i class="fas fa-wrench"></i> </span> เครื่องมือ</a></li>
-        <li><a> <span class="icon"> <i class="fas fa-user"></i> </span> ลูกค้า</a></li>
-        <li><a> <span class="icon"> <i class="fas fa-car"></i> </span> รถ</a></li>
-    </ul>
-    <p class="menu-label">
-        ตั้งค่า
-    </p>
-    <ul class="menu-list">
-        <li><a> <span class="icon"> <i class="fas fa-cog"></i> </span> ผู้ดูแลระบบ</a></li>
-        <li>
-        <!-- <a class="is-active">Manage Your Team</a>
-        <ul>
-            <li><a>Members</a></li>
-            <li><a>Plugins</a></li>
-            <li><a>Add a member</a></li>
-        </ul> -->
-        </li>
-        <!-- <li><a>Invitations</a></li>
-        <li><a>Cloud Storage Environment Settings</a></li>
-        <li><a>Authentication</a></li> -->
-    </ul>
-    <!-- <p class="menu-label">
-        Transactions
-    </p>
-    <ul class="menu-list">
-        <li><a>Payments</a></li>
-        <li><a>Transfers</a></li>
-        <li><a>Balance</a></li>
-    </ul> -->
-    </aside>
+<ul class="collection with-header">
+    <!-- Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias exercitationem similique a, neque enim, ea eaque rem porro error cumque in eos nobis consequatur ipsum commodi doloremque alias adipisci et? -->
+    <!-- asd -->
+    <li class="collection-header"> <h5>หน้าแรก</h5> </li>
+    <li class="collection-item">ลูกค้า <i class="secondary-content material-icons">account_circle</i> </li>
+    <li class="collection-item"> <i class="secondary-content material-icons">directions_car</i> รถ</li>
+</ul>
 </template>
 
 

@@ -1,22 +1,30 @@
 <template>
-  <div>
-    <navigator/>
-
-    <!-- main -->
-    <div class="columns">
-      <!-- Left Side -->
-      <div class="column is-one-quarter" id="a-side">
-        <a-side  v-if="$auth.loggedIn" />
-      </div>
-      <!-- Right Side -->
-      <div class="column">
-        <!-- <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti assumenda magnam, exercitationem cum perspiciatis a molestias nemo vitae ipsa. Maiores illum quaerat voluptatem, laboriosam distinctio animi mollitia itaque sunt illo? </p> -->
-        <nuxt/>
-      </div>
+<div>
+  <navigator />
+  <div class="row" id="content">
+  
+    <div class="col s12 m4 l3">
+      <a-side />
     </div>
-    <!-- end main -->
-    <!-- <Footer /> -->
+    <div class="col s12 m8 l9">
+      <div class="card horizontal" v-for="(item, index) in 50" :key="index">
+        <div class="card-image"></div>
+        <div class="card-stacked">
+          <div class="card-content">
+            <h6>title</h6>
+          </div>
+          <div class="card-action">
+            <a>action 1</a>
+            <a>action 2</a>
+          </div>
+        </div>
+      </div>
+      <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo at eius, fugiat tempora deserunt, sunt perferendis
+      voluptatem reprehenderit, quis rem dolores accusamus. Earum nostrum sequi, incidunt quis vel perspiciatis
+      voluptatum! -->
+    </div>
   </div>
+</div>
 </template>
 
 <style lang="scss" scoped>

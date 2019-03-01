@@ -1,9 +1,16 @@
 <template>
-  <nav class="navbar" role="navigation" aria-label="main navigation" id="navigator-wrap">
+<nav class="orange" id="nav">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Logo</a>
+        <ul id="nav-mobile" class="right hide-on-small-and-down">
+          <!-- <li><a href="sass.html">เข้าสู่ระบบ</a></li> -->
+          <li> <nuxt-link to="/login"> เข้าสู่ระบบ </nuxt-link> </li>
+        </ul>
+      </div>
+    </nav>
+  <!-- <nav class="navbar" role="navigation" aria-label="main navigation" id="navigator-wrap">
     <div class="navbar-brand">
       <a class="navbar-item" href="https://bulma.io">
-        <!-- <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28"> -->
-        <!-- <span style="height: 28; width: 112;">สำนักงานนายหน้าประกันวินาศภัยดุรงฤทธิ์</span>  -->
       </a>
 
       <a @click="toggle" role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -24,14 +31,9 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <!-- <a class="button is-primary">
-              <strong>Sign up</strong>
-            </a> -->
             <button @click="login" v-if="!$auth.loggedIn" class="button"> เข้าสู่ระบบ </button>
-            <!-- ** dropdown -->
             <div v-else class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link">
-                <!-- More -->
                 <img :src="$auth.user.picture" alt=""> <span> {{$auth.user.name}} </span>
               </a>
 
@@ -55,7 +57,7 @@
         </div>
       </div>
     </div>
-  </nav>
+  </nav> -->
 
 </template>
 

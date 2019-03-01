@@ -19,13 +19,20 @@ module.exports = {
       {src: 'https://earthchie.github.io/jquery.Thailand.js/jquery.Thailand.js/dependencies/JQL.min.js'},
       {src: 'https://earthchie.github.io/jquery.Thailand.js/jquery.Thailand.js/dependencies/typeahead.bundle.js'},
 
-      {src: 'https://earthchie.github.io/jquery.Thailand.js/jquery.Thailand.js/dist/jquery.Thailand.min.js'}
+      {src: 'https://earthchie.github.io/jquery.Thailand.js/jquery.Thailand.js/dist/jquery.Thailand.min.js'},
+
+      // materialize
+      // 1
+      {src: 'https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js'}
     ],
     
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Mitr' },
-      { rel: 'stylesheet', href: 'https://earthchie.github.io/jquery.Thailand.js/jquery.Thailand.js/dist/jquery.Thailand.min.css' }
+      { rel: 'stylesheet', href: 'https://earthchie.github.io/jquery.Thailand.js/jquery.Thailand.js/dist/jquery.Thailand.min.css' },
+
+      // 3
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' }
     ]
   },
 
@@ -40,8 +47,11 @@ module.exports = {
   css: [
     // impprt vue-multiselect style
     { src: 'vue-multiselect/dist/vue-multiselect.min.css', lang: 'css' },
-    { src: '@/assets/css/style.css', lang: 'css' },
-    { src: '@/assets/scss/main.scss', lang: 'scss'},
+    // { src: '@/assets/css/style.css', lang: 'css' },
+    // { src: '@/assets/scss/main.scss', lang: 'scss'},
+
+    // 2
+    '@/assets/scss/app.scss'
   ],
 
   /*
@@ -60,6 +70,8 @@ module.exports = {
     //import vee-validate
     '@/plugins/vee-validate.js',
 
+    '@/plugins/materialize.js'
+
   ],
 
   /*
@@ -69,7 +81,7 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
     // Doc:https://github.com/nuxt-community/modules/tree/master/packages/bulma
-    '@nuxtjs/bulma',
+    // '@nuxtjs/bulma',
 
     '@nuxtjs/style-resources',
 

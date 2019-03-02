@@ -1,13 +1,14 @@
 <template>
-<div>
+<div class="grey lighten-5">
   <navigator />
   <div class="row" id="content">
   
-    <div class="col s12 m4 l3">
+    <div class="col s12 l5 center-align">
       <a-side />
     </div>
-    <div class="col s12 m8 l9">
-      <div class="card horizontal" v-for="(item, index) in 50" :key="index">
+    <div class="col s12 l7">
+      <nuxt/>
+      <!-- <div class="card horizontal" v-for="(item, index) in 50" :key="index">
         <div class="card-image"></div>
         <div class="card-stacked">
           <div class="card-content">
@@ -18,7 +19,7 @@
             <a>action 2</a>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo at eius, fugiat tempora deserunt, sunt perferendis
       voluptatem reprehenderit, quis rem dolores accusamus. Earum nostrum sequi, incidunt quis vel perspiciatis
       voluptatum! -->

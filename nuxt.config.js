@@ -28,7 +28,7 @@ module.exports = {
     
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Mitr' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Mitr|Prompt' },
       { rel: 'stylesheet', href: 'https://earthchie.github.io/jquery.Thailand.js/jquery.Thailand.js/dist/jquery.Thailand.min.css' },
 
       // 3
@@ -70,7 +70,10 @@ module.exports = {
     //import vee-validate
     '@/plugins/vee-validate.js',
 
-    '@/plugins/materialize.js'
+    '@/plugins/materialize.js',
+
+    // vue paginate
+    '@/plugins/vue-paginate.js',
 
   ],
 
@@ -92,7 +95,7 @@ module.exports = {
   ],
 
   router: {
-    middleware: ['auth']
+    // middleware: ['auth']
   },
  
   auth: {

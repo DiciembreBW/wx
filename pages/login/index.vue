@@ -1,9 +1,9 @@
 <template>
     <div class="wrap">
         <!-- <button class="button"> เข้าสู่ระบบ </button> -->
-        <!-- <span class="button is-primary" @click="login">
+        <span class="button is-primary" @click="login">
             เข้าสู่ระบบ
-        </span> -->
+        </span>
     </div>
 </template>
 

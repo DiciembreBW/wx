@@ -1,8 +1,15 @@
 @import '@/node_modules/materialize-css/sass/materialize.scss';
-
-#nav {
+html * {
+    font-family: 'Prompt', sans-serif
+}
+.brand-logo {
+    font-weight: bold;
+}
+#card-content{
+    padding: 6px 12px;
 }
 
-#content {
-    // background-color: red;
+#card-item {
+    margin: 3px 0;
+    padding: 0 0;
 }

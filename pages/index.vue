@@ -1,10 +1,11 @@
 <template>
-<div>
+<div class="section">
+
 
 <div class="row">
   <div class="input-field col s10">
     <i class="material-icons prefix">search</i>
-    <input id="icon_telephone" type="tel" class="validate">
+    <input id="icon_telephone" type="text" class="validate">
     <label for="icon_telephone">ค้นหา</label>
   </div>
   <div class="input-field col s2">
@@ -13,7 +14,7 @@
 </div>
 
 <!-- show item -->
-  <!-- <div class="section" id="items">
+  <!-- <div class="row" id="items">
       <div class="card col s12 m10 l4" v-for="(item, index) in 9" :key="index">
         <div class="card-image"></div>
         <div class="card-stacked">
@@ -28,11 +29,16 @@
         </div>
       </div>
   </div> -->
+
+  <div class="row">
+    <paginate-links class="pagination" for="i"></paginate-links> 
+  </div>
+
   <paginate
     name= 'i'
     :list="item"
     :per=8 
-    class="section" id="items">
+    class="row" id="items">
 
     <div class="card horizontal col s12 l6" v-for="(item, index) in paginated('i')" :key="index" id="card-item">
       <div class="card-image"></div>
@@ -49,12 +55,12 @@
       </div>
     </div>
   </paginate>
-  <div class="section">
-    <paginate-links class="pagination" for="i"></paginate-links>
-  </div>
-</div>
 
- 
+  <div class="row">
+    <paginate-links class="pagination" for="i"></paginate-links> 
+  </div>
+
+</div>
 </template>
 
 <script>

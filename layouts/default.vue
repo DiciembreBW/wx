@@ -3,9 +3,10 @@
   <navigator />
   <div class="row" id="content">
   
-    <div class="col s12 l5 center-align">
+    <div class="col s12 l5">
       <a-side />
     </div>
+
     <div class="col s12 l7">
       <nuxt/>
       <!-- <div class="card horizontal" v-for="(item, index) in 50" :key="index">

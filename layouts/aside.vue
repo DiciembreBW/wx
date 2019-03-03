@@ -1,9 +1,10 @@
 <template>
-<div>
-    <p>เดือน มีนาคม หมดอายุ</p>
-    <div> <h1>32  <span>คัน</span> </h1> </div>
-    <!-- app -->
-    <div class="hide-on-med-and-up"> <i class="material-icons">apps</i> </div>
+<div class="section">
+    <div class="row center-align">
+        <p>เดือน มีนาคม หมดอายุ</p>
+        <div> <h1>32  <span>คัน</span> </h1> </div>
+        <div class="hide-on-med-and-up"> <i class="material-icons">apps</i> </div>
+    </div>
 
     <!-- corp -->
     <div class="row hide-on-small-and-down">

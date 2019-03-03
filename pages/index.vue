@@ -1,8 +1,13 @@
 <template>
-<div class="section">
-
-
 <div class="row">
+  <div class="col s12 l5">
+    <a-side />
+  </div>
+
+  <div class="col s12 l7">
+    <index-comp />
+
+    <!-- <div class="row">
   <div class="input-field col s10">
     <i class="material-icons prefix">search</i>
     <input id="icon_telephone" type="text" class="validate">
@@ -12,23 +17,6 @@
     <i class="material-icons prefix">list</i>
   </div>
 </div>
-
-<!-- show item -->
-  <!-- <div class="row" id="items">
-      <div class="card col s12 m10 l4" v-for="(item, index) in 9" :key="index">
-        <div class="card-image"></div>
-        <div class="card-stacked">
-          <div class="card-content" id="card-content">
-            <h5>อรอุมา จันทร์เสน</h5>
-            <ul>
-              <li>Toyota Vios</li>
-              <li>กค 3312  มุกดาหาร</li>
-              <li>เทเวศประกันภัย</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-  </div> -->
 
   <div class="row">
     <paginate-links class="pagination" for="i"></paginate-links> 
@@ -58,37 +46,20 @@
 
   <div class="row">
     <paginate-links class="pagination" for="i"></paginate-links> 
-  </div>
+  </div> -->
 
+  </div>
 </div>
 </template>
 
 <script>
-// import ItemOnIndexComponent from '@/components/ItemOnIndexComponent.vue'
-import Firestore from '@/plugins/boydPlugins'
-// import _ from 'lodash'
-
-const item = new Firestore('cars')
-// import fuse from 'fuse.js'
+import ASide from '@/components/aside.vue'
+import IndexComp from '@/components/IndexComponent.vue'
 
 export default {
-  // components: {ItemOnIndexComponent},
+  components: {ASide, IndexComp},
   data () {
-    return {
-      item: item.data,
-      paginate: ['i'],
-      text: '',
-    }
-  },
-
-  // methods: {
-  //   handle: function (event) {
-  //     if(this.text) {
-  //         this.item = new fuse(this.item, {keys: ['firstname', 'lastname']}).search(this.text)
-  //     } else {
-  //       item.onSnapshot().then(data => this.item = data)
-  //     }
-  //   }
-  // }
+    return { }
+  }
 }
 </script>

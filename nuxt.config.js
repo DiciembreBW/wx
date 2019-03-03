@@ -75,6 +75,7 @@ module.exports = {
     // vue paginate
     '@/plugins/vue-paginate.js',
 
+    '@/plugins/vue-form-wizard.js',
   ],
 
   /*

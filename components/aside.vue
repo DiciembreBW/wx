@@ -2,12 +2,12 @@
 <div class="section">
     <div class="row center-align">
         <p>เดือน มีนาคม หมดอายุ</p>
-        <div> <h1>32  <span>คัน</span> </h1> </div>
+        <div> <span id="Month">32</span>  <span>คัน</span> </div>
         <div class="hide-on-med-and-up"> <i class="material-icons">apps</i> </div>
     </div>
 
     <!-- corp -->
-    <div class="row hide-on-small-and-down">
+    <div class="row hide-on-small-and-down center-align">
         <div class="col s12 m6">
             <ul>
                 <li>กรุงเทพประกันภัย</li>

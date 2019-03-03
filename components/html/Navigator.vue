@@ -1,11 +1,12 @@
 <template>
 <nav class="grey lighten-1" id="nav">
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo">DRR Insr</a>
+        <nuxt-link to="/" class="brand-logo">DRR Insr</nuxt-link>
         <ul id="nav-mobile" class="right hide-on-small-and-down">
           <!-- <li><a href="sass.html">เข้าสู่ระบบ</a></li> -->
           <li> <nuxt-link to="/"> หน้าแรก </nuxt-link> </li>
           <li> <nuxt-link to="/login"> เข้าสู่ระบบ </nuxt-link> </li>
+          <li> <nuxt-link to="/item"> item </nuxt-link> </li>
         </ul>
       </div>
     </nav>

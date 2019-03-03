@@ -1,0 +1,29 @@
+{
+  "fields": {
+    "customer": [{
+        "name": "username",
+        "label": "ชื่อ",
+        "cleaveConfig": {
+        }
+      },
+      {
+        "name": "lastname",
+        "label": "นามสกุล",
+        "cleaveConfig": {
+        }
+      },
+      {
+        "name": "idcard",
+        "label": "รหัสบัตรประชาชน",
+        "cleaveConfig": {
+          "blocks": [1, 4, 2, 3, 2, 1]
+        }
+      },
+      {
+        "name": "phone",
+        "label": "เบอร์โทรศัพท์",
+        "cleaveConfig": { }
+      }
+    ]
+  }
+}

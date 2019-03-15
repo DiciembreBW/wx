@@ -1,34 +1,47 @@
 <template>
-    <div class="field">
-        <label class="label is-size-7">
-            <slot class="">slot</slot>
-        </label>
-        <div class="control">
-            <input v-model="inputValue" class="input" type="text">
-        </div>
+    <div>
+        <input type="text"
+            :class="data.name"
+            :placeholder="data.label"
+            @keyup="passData"
+        >
+
     </div>
 </template>
 
 <script>
 export default {
     props: {
-        // 1
-        // data: {type: String},
-        v: {type: String}
-    },
-
-    data: function () {
-        return {
-            // 2
-            inputValue: this.v
+        data: {
+            type: Object,
+            required: true
         }
     },
 
-    watch: {
-        // 3
-        inputValue (value) {
-            this.$emit('input', value)
+    data () {
+        return {
+        }
+    },
+
+    mounted () {
+        let {data} = this
+
+        let config = data.config || {
+            blocks: [18]
+        }
+
+        new this.$Cleave('.' + data.name, config)
+    },
+
+    methods: {
+        passData: function(event) {
+            // this.$emit('callback', event.target.value)
+            this.$emit('input',  event.target.value)
         }
     }
 }
 </script>
+
+<style>
+
+</style>

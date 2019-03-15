@@ -16,34 +16,29 @@
         </div>
 
         <div class="row">
-            <div class="card horizontal" v-for="(item, index) in 6" :key="index">
-                <div class="card-image">
-                    <img :src="Faker.image.avatar()" alt="">
-                </div>
-                <div class="card-stacked">
-                    <div class="card-content">
-                        <h5> {{Faker.name.findName()}} </h5>
-                        <p>{{Faker.address.city()}}</p>
-                    </div>
-                </div>
-                <!-- {{Faker.name.firstName}} -->
-            </div>
-            <!-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto voluptas quidem illo accusamus reiciendis inventore quas culpa molestiae maiores ea. Sint velit reiciendis neque ducimus inventore consequuntur debitis animi quia.</p> -->
+            <thumb v-for="(item, index) in data"
+                :key="index"
+                :data="item"
+            />
         </div>
     </div>
 </template>
 
 <script>
-import Faker from 'faker'
+import Thumb from '@/components/thumb.vue'
 
-import Firstore from '@/plugins/boydPlugins'
-let items = new Firstore('cars')
 
-// console.log(Faker.address.city)
 export default {
+    components: { Thumb },
     data () {
+        let Items = new this.$Firestore('items')
+
+        Items.onSnapshot().then(doc => {
+            console.log(doc)
+        })
+    
         return {
-            Faker: Faker
+            data: []
         }
     }
 }

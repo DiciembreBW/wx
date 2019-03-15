@@ -1,0 +1,195 @@
+{
+  "customer": {
+    "fields": [{
+      "name": "firstname",
+      "label": "ชื่อ",
+      "validate": "required"
+    }, {
+      "name": "lastname",
+      "label": "นามสกุล",
+      "validate": "required"
+    }, {
+      "name": "idcard",
+      "label": "รหัสบัตรประชาชน",
+      "validate": "required|numeric|max:13",
+      "config": {
+        "blocks": [1, 4, 2, 3, 2, 1]
+      }
+    }, {
+      "name": "phone",
+      "label": "เบอร์โทรศัพท์",
+      "validate": "required|numeric|max:10",
+      "config": {
+        "blocks": [10]
+      }
+    }]
+  },
+  "address": {
+    "fields": [{
+        "name": "district",
+        "label": "ตำบล",
+        "validate": "required"
+      },
+      {
+        "name": "amphoe",
+        "label": "อำเภอ",
+        "validate": "required"
+      },
+      {
+        "name": "province",
+        "label": "จังหวัด",
+        "validate": "required"
+      },
+      {
+        "name": "zipcode",
+        "label": "รหัสไปรษณีย์",
+        "validate": "required"
+      }
+    ]
+  },
+
+  "car": {
+    "fields": [{
+        "name": "brand",
+        "label": "ยี่ห้อ",
+        "validate": "required"
+      },
+      {
+        "name": "version",
+        "label": "รุ่น",
+        "validate": "required"
+      },
+      {
+        "name": "year",
+        "label": "ปีรถ (พ.ศ.)",
+        "validate": "required|max:4",
+        "config": {
+          "date": true,
+          "datePattern": ["d", "m", "Y"]
+        }
+      },
+      {
+        "name": "cc",
+        "label": "ขนาดเครื่องยนต์ (cc)",
+        "validate":"required|max:4",
+        "config": {
+          "blocks": [4]
+        }
+      },
+      {
+        "name": "color",
+        "label": "สีรถ",
+        "validate": "required"
+      }
+    ]
+  },
+
+  "insurance": {
+    "fields": [{
+        "name": "prb",
+        "label": "พ.ร.บ.",
+        "validate": "required",
+        "config": {
+          "date": true,
+          "datePattern": ["d", "m", "Y"]
+        }
+      },
+{
+        "name": "corp",
+        "label": "บริษัทประกัน",
+        "validate": "required",
+        "config": {
+          "date": true,
+          "datePattern": ["d", "m", "Y"]
+        }
+      },
+      {
+        "name": "pragunStart",
+        "label": "วันเริ่มประกัน",
+        "validate": "required",
+        "type": "date",
+        "config": {
+          "date": true,
+          "datePattern": ["d", "m", "Y"]
+        }
+      },
+      {
+        "name": "pragunEnd",
+        "label": "วันหมดกรมธรรม์",
+        "validate": "required",
+        "type": "date",
+        "config": {
+          "date": true,
+          "datePattern": ["d", "m", "Y"]
+        }
+      },
+      {
+        "name": "pragunType",
+        "label": "ประเภทประกัน",
+        "validate": "required",
+        "config": {
+          "date": true,
+          "datePattern": ["d", "m", "Y"]
+        }
+      },
+      {
+        "name": "pragunTun",
+        "label": "ทุนประกันประกัน",
+        "validate": "required",
+        "config": {
+          "date": true,
+          "datePattern": ["d", "m", "Y"]
+        }
+      },
+      {
+        "name": "fix",
+        "label": "ชนิดซ่อม อู่",
+        "validate": "required",
+        "config": {
+          "date": true,
+          "datePattern": ["d", "m", "Y"]
+        }
+      },
+      {
+        "name": "bia",
+        "label": "่ชำระเบี้ย",
+        "validate": "required",
+        "type": "number",
+        "config": {
+          "date": true,
+          "datePattern": ["d", "m", "Y"]
+        }
+      },
+      {
+        "name": "joinPasee",
+        "label": "ภาษีปีต่อ",
+        "validate": "required",
+        "type": "number",
+        "config": {
+          "date": true,
+          "datePattern": ["d", "m", "Y"]
+        }
+      },
+      {
+        "name": "paseeExpire",
+        "label": "วันหมดภาษี",
+        "validate": "required",
+        "type": "date",
+        "config": {
+          "date": true,
+          "datePattern": ["d", "m", "Y"]
+        }
+      },
+      {
+        "name": "note",
+        "label": "หมายเหตุ",
+        "validate": "required",
+        "class": "",
+        "config": {
+          "date": true,
+          "datePattern": ["d", "m", "Y"]
+        }
+      }
+    ]
+  }
+}

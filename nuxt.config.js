@@ -76,6 +76,12 @@ module.exports = {
     '@/plugins/vue-paginate.js',
 
     '@/plugins/vue-form-wizard.js',
+
+    '@/plugins/CleaveP',
+    
+    '@/plugins/Prototypes',
+
+    '@/plugins/components'
   ],
 
   /*
@@ -96,7 +102,7 @@ module.exports = {
   ],
 
   router: {
-    // middleware: ['auth']
+    middleware: ['auth']
   },
  
   auth: {

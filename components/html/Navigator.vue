@@ -1,66 +1,45 @@
 <template>
-<nav class="grey lighten-1" id="nav">
+<!-- <nav class="orange" id="nav">
       <div class="nav-wrapper">
         <nuxt-link to="/" class="brand-logo">DRR Insr</nuxt-link>
         <ul id="nav-mobile" class="right hide-on-small-and-down">
-          <!-- <li><a href="sass.html">เข้าสู่ระบบ</a></li> -->
           <li> <nuxt-link to="/"> หน้าแรก </nuxt-link> </li>
+          <li> <nuxt-link to="/item"> เพิ่มข้อมูล</nuxt-link> </li>
           <li> <nuxt-link to="/login"> เข้าสู่ระบบ </nuxt-link> </li>
-          <li> <nuxt-link to="/item"> item </nuxt-link> </li>
         </ul>
       </div>
-    </nav>
-  <!-- <nav class="navbar" role="navigation" aria-label="main navigation" id="navigator-wrap">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="https://bulma.io">
-      </a>
-
-      <a @click="toggle" role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
+    </nav> -->
+    <div>
+      <nav class="nav-extended orange">
+    <div class="nav-wrapper container">
+      <nuxt-link to="/" class="brand-logo hide-on-med-and-down">สนง.นายหน้าประกันวินาศภัยดุรงฤทธิ์</nuxt-link>
+      <nuxt-link to="/" class="brand-logo hide-on-large-only">DRR Broker</nuxt-link>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <!-- <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">JavaScript</a></li> -->
+        <li> <nuxt-link to="/"> หน้าแรก </nuxt-link> </li>
+          <li> <nuxt-link to="/item"> เพิ่มข้อมูล</nuxt-link> </li>
+          <li> <nuxt-link to="/login"> เข้าสู่ระบบ </nuxt-link> </li>
+      </ul>
     </div>
+    <!-- <div class="nav-content">
+      <ul class="tabs tabs-transparent">
+        <li class="tab"><a href="#test1">Test 1</a></li>
+        <li class="tab"><a class="active" href="#test2">Test 2</a></li>
+        <li class="tab disabled"><a href="#test3">Disabled Tab</a></li>
+        <li class="tab"><a href="#test4">Test 4</a></li>
+      </ul>
+    </div> -->
+  </nav>
 
-    <div id="navbarBasicExample" class="navbar-menu" :class="toggleMenu ? 'is-active' : ''">
-      <div class="navbar-start"  @click="toggle">
-        <nuxt-link to="/" class="navbar-item">หน้าแรก</nuxt-link>
-        <nuxt-link to="/work" class="navbar-item">เพิ่ม</nuxt-link>
-        <nuxt-link to="/customer" class="navbar-item">ลูกค้า</nuxt-link>
-        <nuxt-link to="/car" class="navbar-item">รถ</nuxt-link>
-      </div>
-
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons">
-            <button @click="login" v-if="!$auth.loggedIn" class="button"> เข้าสู่ระบบ </button>
-            <div v-else class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link">
-                <img :src="$auth.user.picture" alt=""> <span> {{$auth.user.name}} </span>
-              </a>
-
-              <div class="navbar-dropdown">
-                <a class="navbar-item">
-                  {{$auth.user.email}}
-                </a>
-                <a class="navbar-item">
-                  {{$auth.user.gender}}
-                </a>
-                <a class="navbar-item">
-                  {{$auth.user.locale}}
-                </a>
-                <hr class="navbar-divider">
-                <a class="navbar-item" @click="logout">
-                  ออกจากระบบ
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <ul class="sidenav" id="mobile-demo">
+     <li> <nuxt-link to="/"> หน้าแรก </nuxt-link> </li>
+          <li> <nuxt-link to="/item"> เพิ่มข้อมูล</nuxt-link> </li>
+          <li> <nuxt-link to="/login"> เข้าสู่ระบบ </nuxt-link> </li>
+  </ul>
     </div>
-  </nav> -->
-
 </template>
 
 <style lang="scss" scoped>
@@ -95,6 +74,9 @@ $color_a: #C3AD85;
 
 <script>
 export default {
+  mounted () {
+    this.$materialize.sidenav()
+  },
   data () {
     return {
       toggleMenu: false

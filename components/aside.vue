@@ -1,9 +1,14 @@
 <template>
 <div class="section">
     <div class="row center-align">
-        <p>เดือน มีนาคม หมดอายุ</p>
-        <div> <span id="Month">32</span>  <span>คัน</span> </div>
-        <div class="hide-on-med-and-up"> <i class="material-icons">apps</i> </div>
+        <p>มีลูกค้าทั้งหมด</p>
+        <div> <span id="Month">{{item.length}}</span>  <span>คัน</span> </div>
+        <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1" id="apps">
+            <i class="material-icons">apps</i>
+        </a> -->
+        <ul>
+            <!-- <li> <nuxt-link to="/item">add</nuxt-link> </li> -->
+        </ul>
     </div>
 
     <!-- corp -->
@@ -31,17 +36,26 @@
             </ul>
         </div>
     </div>
+
+    <div class="row">
+    </div>
 </div>
-<!-- <ul class="collection with-header">
-    <li class="collection-header"> <h5>หน้าแรก</h5> </li>
-    <li class="collection-item">ลูกค้า <i class="secondary-content material-icons">account_circle</i> </li>
-    <li class="collection-item"> <i class="secondary-content material-icons">directions_car</i> รถ</li>
-</ul> -->
 </template>
 
 
 <script>
 export default {
+    data () {
+        let Item = new this.$Firestore('items').snapShot()
 
+        return {
+            t: false,
+            item: Item.$_data
+        }
+    },
+    methods: {
+        toggle: function () {
+        }
+    }
 }
 </script>

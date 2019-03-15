@@ -1,42 +1,47 @@
-<template>
-  <div>
-    <!-- {{data}} -->
-    <table class="table is-fullwidth">
-      <thead>
-          <tr>
-            <td>ชื่อ สกุล</td>
-            <td> เบอร์โทรศัพท์ </td>
-          </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(item, index) in data" :key="index">
-          <td> <nuxt-link :to="'customer/'+item._key"> {{item.customer.firstname}} {{item.customer.lastname}}</nuxt-link> </td>
-          <td> {{item.customer.phone}}  </td>
-          <td @click="remove(item._key)"> <span> <i class="fas fa-trash"></i> </span>  </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<template lang="pug">
+div.container
+  div.row.center-align
+    h4 Login
+    p.grey-text adawddawdawdawda wfalkmgskleg mskelgmkS
+  div.row
+    div.col.s12.m6
+      p
+        input(v-model="text")
+      p
+        button(@click='click') click
+      //- pre {{items}}
+      span {{value.length}}
+      //- span {{$store.state.$_data.length}}
+      li(v-for='item in value') {{item.id}}
+        button(@click="remove(item.id)") ลบ
+          i.material-icons delete
+      //- pre {{data}}
 </template>
 
 <script>
-import testFirestore, {Firestore} from '@/plugins/boydPlugins'
-
-let CUSTOMER = new testFirestore('customer')
-
+import Firebase from '@/plugins/fb'
+const Test = new Firebase('test')
+Test.snapShot()
 export default {
-  data() {
-    CUSTOMER.onSnapshot().then(data => this.data = data)
-    return { data: [] }
-  },
-
-  methods: {
-    remove: function (_key) {
-      CUSTOMER.removeDocument(_key).then(data => this.data = data)
+  async asyncData ({store}) {
+    return {
+      text: '',
+      value: Test.$_data
     }
+  },
+  methods: {
+    click: function () {
+      Test.root.add({
+        text: this.text
+      })
+    },
+
+    remove: function(id) {
+      Test.root.doc(id).delete()
+    }
+  
   }
 }
-
 </script>
 
 <style>
